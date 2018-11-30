@@ -1,0 +1,202 @@
+
+	DCOMM - DomoBus Communication module
+
+
+			API
+			===
+
+
+Configuração
+============
+extern int DComm_config_from_file(char *filename);
+
+
+  Exemplo de chamada:
+
+  status = DComm_config_from_file("App1_Config.txt");
+  if(status != DCOMM_OK)
+    return 1; /* error */
+
+  Depois envio um ficheiro exemplo, com comandos de configuração
+
+
+Definição de callbacks
+======================
+  Funções que tratam os diversos tipos de mensagens recebidas.
+  Existem 6 que tratam as mensagens GET, SET, NOTIFY,
+  A_GET (Answer to GET),  EXEC e situações de erro.
+   Não é obrigatório definir todas; apenas as que fazem sentido
+  para a aplicação.
+   ATENÇÃO: Isto pode parecer mais complicado do que é na
+   realidade! Na prática, apenas é necessário ter referências para
+  funções.
+   Nota: nos argumentos das funções é usado uint = unsigned int
+  e uint8 *  = apontador para array de bytes (ou  unsigned char * )
+   Nota2: Isto será 90% do trabalho; mas feito para uma função, as
+  demais são análogas...
+   Não desistir e continuar a ler  :-)
+
+
+extern void DComm_set_callback_func_msg_get( int (*process_msg_get)
+		(uint dev_addr, uint prop_desc,
+			uint8 *value_ptr, int *value_invalid_p));
+
+extern void DComm_set_callback_func_msg_set( int (*process_msg_set)
+		(uint dev_addr, uint prop_desc, uint8 *value_ptr));
+
+extern void DComm_set_callback_func_msg_notify( int (*process_msg_notify)
+		(uint dev_addr, uint prop_desc, uint8 *value_ptr));
+
+extern void DComm_set_callback_func_msg_answer_get(
+	void (*process_msg_answer_get) (uint dev_addr_w, uint prop_desc_w,
+		uint dev_addr, uint prop_desc, uint8 *value_ptr));
+
+extern void DComm_set_callback_func_msg_exec( int (*process_msg_exec)
+						(uint8 *action_ptr));
+
+extern void DComm_set_callback_func_msg_error( void (*process_msg_error)
+					(int error_code, uint8 *msg_ptr));
+
+
+  Exemplo de chamada:
+
+  DComm_set_callback_func_msg_get(process_msg_get);
+  DComm_set_callback_func_msg_set(process_msg_set);
+  DComm_set_callback_func_msg_notify(process_msg_notify);
+  DComm_set_callback_func_msg_answer_get(process_msg_answer_get);
+  DComm_set_callback_func_msg_exec(process_msg_exec);
+  DComm_set_callback_func_msg_error(process_msg_error);
+
+
+  As callbacks são as funções process_msg_get(), process_msg_set(), etc.
+  Escolhi estes nomes, mas pode ser qualquer nome. (ou NULL se algo não
+  é tratado).
+
+  Como pode não ser óbvio entender as declarações acima, indico em
+  seguida os protótipos das funções de callback:
+
+  int process_msg_get(uint dev_addr, uint prop_desc,
+				uint8 *value_ptr, int *value_invalid_p);
+
+  int process_msg_set(uint dev_addr, uint prop_desc, uint8 *value_ptr);
+
+  int process_msg_notify(uint dev_addr, uint prop_desc, uint8 *value_ptr);
+
+  void process_msg_answer_get(uint dev_addr_w, uint prop_desc_w,
+			uint dev_addr, uint prop_desc, uint8 *value_ptr);
+
+  int process_msg_exec(uint8 *action_ptr);
+
+  void process_msg_error(int error_code, uint8 *msg_ptr);
+
+
+  Descrevo apenas o caso do GET: (aplicação recebeu GET)
+   (que é o caso mais complicado)
+
+   A função process_msg_get() recebe "dev_addr" (inteiro sem sinal que indica
+  o número do dispositivo), "prop_desc" (inteiro sem sinal que contém um
+  descritor de uma propriedade - número de propriedade e mais algumas coisas;
+  depois explico melhor), "value_ptr" (apontador para array de bytes onde
+  deverá ser escrito o valor da propriedade; lembrar que a propriedade pode
+  ser um inteiro, que usa 4 bytes, ou um array; depois dou mais detalhes),
+  "value_invalid_p" (apontador para inteiro onde será indicado se o valor é
+  válido ou inválido; mais detalhes mais tarde).
+
+  Com base no que descrevi, os restantes casos são óbvios.
+  Na prática, será necessário lidar com inteiros, apontadores para inteiros
+  e apontadores para arrays de bytes. APENAS ISTO!!!
+
+
+
+Inicialização/Arranque do DCOMM
+===============================
+
+extern int DComm_start(void);
+
+
+  Exemplo de chamada:
+
+
+  status = DComm_start();
+  if(status != DCOMM_OK)
+  {
+    DComm_print_error(stdout, status);
+    DComm_stop();
+    return 1;
+  }
+
+
+
+Recepção de mensagens
+=====================
+
+extern int DComm_process_msg(void);
+
+
+  Exemplo de chamada:
+
+  while(1)
+  {
+    status = DComm_process_msg();
+    if(status)
+      DComm_print_error(stdout, status);
+  }
+
+  Esta função bloqueia se não existir nenhuma mensagem para tratar.
+  Se existir, ela chama a respectiva callback e trata do envio da
+  resposta, etc, etc.
+
+
+
+Envio de mensagens
+==================
+
+extern int DComm_send_GET(uint app_dest, uint dev_addr_w, uint prop_desc_w,
+				uint dev_addr, uint prop_desc);
+
+extern int DComm_send_SET(uint app_dest, uint dev_addr_o, uint prop_desc_o,
+			uint dev_addr, uint prop_desc, uint8 *value_p);
+
+extern int DComm_send_NOTIFY(uint app_dest,
+			uint dev_addr, uint prop_desc, uint8 *value_p);
+
+extern int DComm_send_EXEC(uint app_dest, uint8 *action_p);
+
+extern int DComm_send_MSG(uint app_dest, uint msg_ctr,
+					uint data_len, uint8 *data_p);
+
+
+
+  Exemplo de chamada:
+
+  status = DComm_send_GET(3, 0, 0, 2, 1);
+
+  Envia uma mensagem GET para a aplic 3, solicitando o valor (GET) da
+  propriedade 1 do dispositivo 2.
+
+
+
+Encerramento do módulo
+======================
+
+extern void DComm_stop(void);
+
+
+  Exemplo de chamada:
+
+  DComm_stop();
+
+
+
+Escrever mensagem de erro
+=========================
+
+extern int DComm_print_error(FILE *prt_fp, int error_code);
+
+
+Isto depois poderá mudar e devolver antes a string com a descrição do
+erro; como está escreve a mensagem no ficheiro indicado ou, se for usado
+stdout, escreve no ecrã.
+
+
+<FIM>

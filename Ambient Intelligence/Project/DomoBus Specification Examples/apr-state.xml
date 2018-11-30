@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Components>
+  <DeviceStateList>
+    <DeviceState InvalidValue="False" RefDevice="1" RefProperty="1" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="1" RefProperty="2" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="1" RefProperty="3" Value="" />
+    <DeviceState InvalidValue="False" RefDevice="2" RefProperty="1" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="2" RefProperty="2" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="2" RefProperty="3" Value="" />
+    <DeviceState InvalidValue="False" RefDevice="3" RefProperty="1" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="3" RefProperty="2" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="3" RefProperty="3" Value="10" />
+    <DeviceState InvalidValue="False" RefDevice="4" RefProperty="1" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="4" RefProperty="2" Value="10" />
+    <DeviceState InvalidValue="False" RefDevice="4" RefProperty="3" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="5" RefProperty="1" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="5" RefProperty="2" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="6" RefProperty="1" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="6" RefProperty="2" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="6" RefProperty="3" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="6" RefProperty="4" Value="1" />
+    <DeviceState InvalidValue="False" RefDevice="7" RefProperty="1" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="8" RefProperty="1" Value="1" />
+    <DeviceState InvalidValue="False" RefDevice="8" RefProperty="2" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="8" RefProperty="3" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="8" RefProperty="4" Value="1" />
+    <DeviceState InvalidValue="False" RefDevice="9" RefProperty="1" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="9" RefProperty="2" Value="0" />
+    <DeviceState InvalidValue="False" RefDevice="10" RefProperty="1" Value="10" />
+  </DeviceStateList>
+  <WorkspaceList>
+    <Device ID="1" />
+    <Device ID="2" />
+    <Device ID="4" />
+    <Device ID="6" />
+    <Device ID="8" />
+  </WorkspaceList>
+</Components>

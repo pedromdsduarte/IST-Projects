@@ -1,0 +1,782 @@
+// $Id: postfix_writer.cpp,v 1.46 2016/05/19 23:45:48 ist179112 Exp $ -*- c++ -*-
+#include <string>
+#include <sstream>
+#include "targets/type_checker.h"
+#include "targets/postfix_writer.h"
+#include "targets/stack_counter.h"
+#include "ast/all.h"  // all.h is automatically generated
+
+
+//---------------------------------------------------------------------------
+//     THIS IS THE VISITOR'S DEFINITION
+//---------------------------------------------------------------------------
+
+void zu::postfix_writer::do_sequence_node(cdk::sequence_node * const node, int lvl) {
+  for (size_t i = 0; i < node->size(); i++) {
+    node->node(i)->accept(this, lvl+2);
+  }
+}
+
+//---------------------------------------------------------------------------
+
+void zu::postfix_writer::do_integer_node(cdk::integer_node * const node, int lvl) {
+  //_pf.INT(node->value()); // push an integerf
+    if(_global)
+        _pf.CONST(node->value());
+    else
+        _pf.INT(node->value());
+    
+}
+
+void zu::postfix_writer::do_string_node(cdk::string_node * const node, int lvl) {
+    //debug(node, lvl);
+  int lbl1;
+
+  /* generate the string */
+  _pf.RODATA(); // strings are DATA readonly
+  _pf.ALIGN(); // make sure we are aligned
+  _pf.LABEL(mklbl(lbl1 = ++_lbl)); // give the string a name
+  _pf.STR(node->value()); // output string characters
+
+  /* leave the address on the stack */
+  _pf.TEXT(); // return to the TEXT segment
+  _pf.ADDR(mklbl(lbl1)); // the string to be printed
+}
+
+void zu::postfix_writer::do_double_node(cdk::double_node * const node, int lvl) {
+    _pf.RODATA();
+    _pf.ALIGN();
+    _pf.LABEL(mklbl(++_lbl));
+    _pf.DOUBLE(node->value());
+    _pf.TEXT();
+    _pf.ADDR(mklbl(_lbl));
+    _pf.DLOAD();
+}
+
+//---------------------------------------------------------------------------
+
+void zu::postfix_writer::do_neg_node(cdk::neg_node * const node, int lvl) {
+    //debug(node, lvl);
+  CHECK_TYPES(_compiler, _symtab, node);
+  node->argument()->accept(this, lvl+2); // determine the value
+  _pf.NEG(); // 2-complement
+}
+
+//---------------------------------------------------------------------------
+
+void zu::postfix_writer::do_add_node(cdk::add_node * const node, int lvl) {
+  CHECK_TYPES(_compiler, _symtab, node);
+  
+  node->left()->accept(this, lvl+2);
+  if (node->type()->name() == basic_type::TYPE_DOUBLE &&
+      node->left()->type()->name() == basic_type::TYPE_INT)
+      _pf.I2D();
+  
+  node->right()->accept(this, lvl+2);
+  if (node->type()->name() == basic_type::TYPE_DOUBLE &&
+      node->right()->type()->name() == basic_type::TYPE_INT)
+      _pf.I2D();
+  
+  if((node->type()->name() == basic_type::TYPE_INT) ||
+     (node->type()->name() == basic_type::TYPE_POINTER))
+    _pf.ADD();
+  else if(node->type()->name() == basic_type::TYPE_DOUBLE)
+    _pf.DADD();
+}
+void zu::postfix_writer::do_sub_node(cdk::sub_node * const node, int lvl) {
+  CHECK_TYPES(_compiler, _symtab, node);
+  node->left()->accept(this, lvl+2);
+  node->right()->accept(this, lvl+2);
+  _pf.SUB();
+}
+void zu::postfix_writer::do_mul_node(cdk::mul_node * const node, int lvl) {
+    //debug(node, lvl);
+  CHECK_TYPES(_compiler, _symtab, node);
+  node->left()->accept(this, lvl+2);
+  node->right()->accept(this, lvl+2);
+  _pf.MUL();
+}
+void zu::postfix_writer::do_div_node(cdk::div_node * const node, int lvl) {
+    //debug(node, lvl);
+  CHECK_TYPES(_compiler, _symtab, node);
+  node->left()->accept(this, lvl+2);
+  node->right()->accept(this, lvl+2);
+  _pf.DIV();
+}
+void zu::postfix_writer::do_mod_node(cdk::mod_node * const node, int lvl) {
+    //debug(node, lvl);
+  CHECK_TYPES(_compiler, _symtab, node);
+  node->left()->accept(this, lvl+2);
+  node->right()->accept(this, lvl+2);
+  _pf.MOD();
+}
+void zu::postfix_writer::do_lt_node(cdk::lt_node * const node, int lvl) {
+    //debug(node, lvl);
+  CHECK_TYPES(_compiler, _symtab, node);
+  node->left()->accept(this, lvl+2);
+  node->right()->accept(this, lvl+2);
+  _pf.LT();
+}
+void zu::postfix_writer::do_le_node(cdk::le_node * const node, int lvl) {
+    //debug(node, lvl);
+  CHECK_TYPES(_compiler, _symtab, node);
+  node->left()->accept(this, lvl+2);
+  node->right()->accept(this, lvl+2);
+  _pf.LE();
+}
+void zu::postfix_writer::do_ge_node(cdk::ge_node * const node, int lvl) {
+    //debug(node, lvl);
+  CHECK_TYPES(_compiler, _symtab, node);
+  node->left()->accept(this, lvl+2);
+  node->right()->accept(this, lvl+2);
+  _pf.GE();
+}
+void zu::postfix_writer::do_gt_node(cdk::gt_node * const node, int lvl) {
+    //debug(node, lvl);
+  CHECK_TYPES(_compiler, _symtab, node);
+  node->left()->accept(this, lvl+2);
+  node->right()->accept(this, lvl+2);
+  _pf.GT();
+}
+void zu::postfix_writer::do_ne_node(cdk::ne_node * const node, int lvl) {
+    //debug(node, lvl);
+  CHECK_TYPES(_compiler, _symtab, node);
+  node->left()->accept(this, lvl+2);
+  node->right()->accept(this, lvl+2);
+  _pf.NE();
+}
+void zu::postfix_writer::do_eq_node(cdk::eq_node * const node, int lvl) {
+    //debug(node, lvl);
+  CHECK_TYPES(_compiler, _symtab, node);
+  node->left()->accept(this, lvl+2);
+  node->right()->accept(this, lvl+2);
+  _pf.EQ();
+}
+
+//---------------------------------------------------------------------------
+
+void zu::postfix_writer::do_rvalue_node(zu::rvalue_node * const node, int lvl) {
+    //debug(node, lvl);
+  CHECK_TYPES(_compiler, _symtab, node);
+  node->lvalue()->accept(this, lvl+2);
+  _pf.LOAD(); //FIXME: depends on type size
+}
+
+//---------------------------------------------------------------------------
+
+void zu::postfix_writer::do_lvalue_node(zu::lvalue_node * const node, int lvl) {
+  CHECK_TYPES(_compiler, _symtab, node);
+  // simplified generation: all variables are global
+  //_pf.ADDR(node->value()); LVALUE CHANGES
+    
+  
+}
+
+//---------------------------------------------------------------------------
+
+void zu::postfix_writer::do_assignment_node(zu::assignment_node * const node, int lvl) {
+    //debug(node, lvl);
+  CHECK_TYPES(_compiler, _symtab, node);
+/*
+  // DAVID: horrible hack!
+  // (this is caused by Zu not having explicit variable declarations)
+  const std::string &id = node->lvalue()->value();
+  std::shared_ptr<zu::symbol> symbol = _symtab.find(id);
+  if (symbol->value() == -1) {
+    _pf.DATA(); // variables are all global and live in DATA
+    _pf.ALIGN(); // make sure we are aligned
+    //_pf.LABEL(id); // name variable location 
+    _pf.CONST(0); // initialize it to 0 (zero)
+    _pf.TEXT(); // return to the TEXT segment
+    symbol->value(0);
+  }*/
+
+  node->rvalue()->accept(this, lvl+2); // determine the new value
+  if(node->rvalue()->type()->name() == basic_type::TYPE_DOUBLE)
+    _pf.DDUP();
+  else 
+    _pf.DUP();
+
+  node->lvalue()->accept(this, lvl+2); // where to store the value
+  if(node->rvalue()->type()->name() == basic_type::TYPE_DOUBLE){
+    _pf.DSTORE();
+  }else{
+    _pf.STORE(); // store the value at address
+  }
+}
+
+//---------------------------------------------------------------------------
+/*
+void zu::postfix_writer::do_program_node(zu::program_node * const node, int lvl) {
+  // Note that Zu doesn't have functions. Thus, it doesn't need
+  // a function node. However, it must start in the main function.
+  // The ProgramNode (representing the whole program) doubles as a
+  // main function node.
+
+  // generate the main function (RTS mandates that its name be "_main")
+  _pf.TEXT();https://www.l2f.inesc-id.pt/wiki/index.php/Welcome_to_the_Spoken_Language_Systems_Lab
+  _pf.ALIGN();
+  _pf.GLOBAL("_main", _pf.FUNC());
+  _pf.LABEL("_main");
+  _pf.ENTER(0);  // Zu doesn't implement local variables
+
+  node->statements()->accept(this, lvl);
+
+  // end the main function
+  _pf.INT(0);
+  _pf.POP();
+  _pf.LEAVE();
+  _pf.RET();
+
+  // these are just a few library function imports
+  _pf.EXTERN("readi");
+  _pf.EXTERN("printi");
+  _pf.EXTERN("prints");
+  _pf.EXTERN("println");
+}
+*/
+//---------------------------------------------------------------------------
+
+void zu::postfix_writer::do_evaluation_node(zu::evaluation_node * const node, int lvl) {
+  CHECK_TYPES(_compiler, _symtab, node);
+  node->argument()->accept(this, lvl+2); // determine the value
+    
+  if (node->argument()->type()->name() == basic_type::TYPE_INT) {
+    _pf.TRASH(4); // delete the evaluated value
+  }
+  else if (node->argument()->type()->name() == basic_type::TYPE_STRING) {
+    _pf.TRASH(4); // delete the evaluated value's address
+  }
+  else if (node->argument()->type()->name() == basic_type::TYPE_DOUBLE) {
+    _pf.TRASH(8);
+  }
+  else if (node->argument()->type()->name() == basic_type::TYPE_POINTER) {
+    _pf.TRASH(4); 
+  }else if(node->argument()->type()->name() == basic_type::TYPE_VOID){
+      
+  }
+  else {
+    std::cerr << "ERROR: CANNOT HAPPEN!" << std::endl;
+    exit(1);
+  }
+}
+
+void zu::postfix_writer::do_print_node(zu::print_node * const node, int lvl) {
+  CHECK_TYPES(_compiler, _symtab, node);
+
+  node->argument()->accept(this, lvl+2); // determine the value to print
+
+      
+  if (node->argument()->type()->name() == basic_type::TYPE_INT) {
+      
+    _pf.CALL("printi");
+    _pf.TRASH(4); // delete the printed value
+  }
+  else if (node->argument()->type()->name() == basic_type::TYPE_STRING) {
+    _pf.CALL("prints");
+    _pf.TRASH(4); // delete the printed value's address  
+  }
+  else if (node->argument()->type()->name() == basic_type::TYPE_DOUBLE) {
+    _pf.CALL("printd");
+    _pf.TRASH(4);
+  }
+  else {
+    std::cerr << "ERROR: CANNOT HAPPEN!" << std::endl;
+    exit(1);
+  }
+  if (node->newline())
+    _pf.CALL("println"); // print a newline
+}
+
+//---------------------------------------------------------------------------
+
+void zu::postfix_writer::do_read_node(zu::read_node * const node, int lvl) {
+    //debug(node, lvl);
+  CHECK_TYPES(_compiler, _symtab, node);
+  _pf.CALL("readi");
+  _pf.PUSH();
+  //node->argument()->accept(this, lvl);
+  _pf.STORE();
+}
+
+//---------------------------------------------------------------------------
+/*
+void zu::postfix_writer::do_while_node(zu::while_node * const node, int lvl) {
+  int lbl1, lbl2;
+  _pf.LABEL(mklbl(lbl1 = ++_lbl));
+  node->condition()->accept(this, lvl);
+  _pf.JZ(mklbl(lbl2 = ++_lbl));
+  node->block()->accept(this, lvl + 2);
+  _pf.JMP(mklbl(lbl1));
+  _pf.LABEL(mklbl(lbl2));
+}
+*/
+//---------------------------------------------------------------------------
+
+void zu::postfix_writer::do_if_node(zu::if_node * const node, int lvl) {
+  int lbl1;
+  node->condition()->accept(this, lvl+2);
+  _pf.JZ(mklbl(lbl1 = ++_lbl));
+  node->block()->accept(this, lvl + 2);
+  _pf.ALIGN();
+  _pf.LABEL(mklbl(lbl1));
+}
+
+//---------------------------------------------------------------------------
+
+void zu::postfix_writer::do_if_else_node(zu::if_else_node * const node, int lvl) {
+  int lbl1, lbl2;
+  node->condition()->accept(this, lvl+2);
+  _pf.JZ(mklbl(lbl1 = ++_lbl));
+  node->thenblock()->accept(this, lvl + 2);
+  _pf.JMP(mklbl(lbl2 = ++_lbl));
+  _pf.ALIGN();
+  _pf.LABEL(mklbl(lbl1));
+  node->elseblock()->accept(this, lvl + 2);
+  _pf.ALIGN();
+  _pf.LABEL(mklbl(lbl1 = lbl2));
+}
+
+//---------------------------------------------------------------------------
+
+void zu::postfix_writer::do_and_node(zu::and_node * const node, int lvl) {
+    //debug(node, lvl);
+    int lbl = ++_lbl;
+    CHECK_TYPES(_compiler, _symtab, node);
+    
+    node->left()->accept(this, lvl+2);
+
+    _pf.DUP();
+    _pf.JZ(mklbl(lbl));
+    
+    
+    node->right()->accept(this, lvl);
+    _pf.DUP();
+    
+    _pf.AND();
+    _pf.ALIGN();
+    _pf.LABEL(mklbl(lbl));
+    
+    
+}
+
+void zu::postfix_writer::do_not_node(zu::not_node * const node, int lvl) {
+    //debug(node, lvl);
+  //FIXME PEDRO
+    /*_pf.LABEL(mklbl(cond = ++_lbl));
+    node->condition()->accept(this, lvl);
+    _pf.JZ(mklbl(end = ++_lbl));*/
+}
+
+void zu::postfix_writer::do_or_node(zu::or_node * const node, int lvl) {
+    int lbl = ++_lbl;
+    CHECK_TYPES(_compiler, _symtab, node);
+    node->left()->accept(this, lvl+2);
+    _pf.DUP();
+    _pf.JZ(mklbl(lbl));
+    
+    node->right()->accept(this, lvl+2);
+    _pf.DUP();
+    
+    _pf.OR();
+    
+    _pf.ALIGN();
+    _pf.LABEL(mklbl(lbl));
+}
+
+void zu::postfix_writer::do_block_node(zu::block_node * const node, int lvl) {
+    //debug(node, lvl);
+    
+    
+    
+    _symtab.push();
+    
+    if(node->declarations() != nullptr) {
+        node->declarations()->accept(this, lvl+2);
+    }
+    
+    if(node->instructions() != nullptr) {
+        node->instructions()->accept(this, lvl+2);
+    }
+        
+    
+    _symtab.pop();
+}
+
+void zu::postfix_writer::do_for_node(zu::for_node * const node, int lvl) {
+    int cond, end, inc;
+    std::string scond = mklbl(cond = ++_lbl);
+    std::string send  = mklbl(end  = ++_lbl);
+    std::string sinc  = mklbl(inc  = ++_lbl);
+    _break_labels.push_back(send);
+    _continue_labels.push_back(sinc);
+    
+    if(node->init() != nullptr)
+        node->init()->accept(this, lvl + 2);
+    
+    _pf.ALIGN();
+    _pf.LABEL(scond);
+
+    if(node->condition() != nullptr){
+        node->condition()->accept(this, lvl +2 );
+        _pf.JZ(send);
+    }
+    
+    
+    node->block()->accept(this, lvl + 2);
+    
+    _pf.ALIGN();
+    _pf.LABEL(sinc);
+    if(node->increment() != nullptr)
+        node->increment()->accept(this, lvl + 2);
+    
+    _pf.JMP(scond);
+    
+    _pf.ALIGN();
+    _pf.LABEL(send);
+    
+    _break_labels.pop_back();
+    _continue_labels.pop_back();
+    
+    
+}
+
+void zu::postfix_writer::do_break_node(zu::break_node * const node, int lvl) {
+    //XXX PEDRO
+    if(_break_labels.size() == 0){
+       std::cerr << "ERROR: cannot use break outside a loop" << std::endl;
+       exit(-1);
+    }else{
+        _pf.JMP(_break_labels.back());
+    }
+}
+void zu::postfix_writer::do_return_node(zu::return_node * const node, int lvl) {
+    //XXX FIALHO
+    if(!_isVoid){
+        if(_retsize == 8){
+            _pf.LOCV(8);
+            _pf.POP();
+        }else{
+            _pf.LOCV(4);
+            _pf.POP();
+        }
+    }
+    _pf.RET();
+}
+
+void zu::postfix_writer::do_continue_node(zu::continue_node * const node, int lvl) {
+    //FIXME FIALHO
+    if(_continue_labels.size() == 0){
+       std::cerr << "ERROR: cannot use continue outside a loop" << std::endl;
+       exit(-1);
+    }else{
+        _pf.JMP(_continue_labels.back());
+    }
+}
+void zu::postfix_writer::do_functioninvocation_node(zu::functioninvocation_node * const node, int lvl) {
+    CHECK_TYPES(_compiler,_symtab,node);
+    int remove_bits = 0;
+    if(node->args() != NULL){
+        for(size_t i = 0; i < node->args()->size(); i++){
+            node->args()->node(i)->accept(this, lvl+2);
+            remove_bits +=((cdk::expression_node *) node->args()->node(i))->type()->size();
+        }
+    }
+    
+    _pf.CALL(node->identifier()->name());
+    _pf.TRASH(remove_bits);
+    
+    //find symbol of function to call
+    std::shared_ptr<zu::symbol> sym = _symtab.find(node->identifier()->name());
+    if(sym == nullptr)
+        std::cerr << "ERROR: function '"<< node->identifier()->name() <<"' not found " << std::endl;
+    
+    if(sym->type()->name() == basic_type::TYPE_POINTER ||
+        sym->type()->name() == basic_type::TYPE_INT ||
+        sym->type()->name() == basic_type::TYPE_STRING)
+        _pf.PUSH();
+    else
+        _pf.DPUSH();
+  
+}
+void zu::postfix_writer::do_functiondeclaration_node(zu::functiondeclaration_node * const node, int lvl) {
+    //debug(node, lvl);
+
+    //FIXME
+}
+void zu::postfix_writer::do_functiondefinition_node(zu::functiondefinition_node * const node, int lvl) {
+    //ESTA IMPLEMENTACAO SO VAI FUNCIONAR PARA INTEIROS
+    //Quando existe, a funcao "zu" e o inicio do programa
+    _global = false;
+    std::string name = "";
+    if (node->identifier()->name() == "zu") 
+        name="_main";
+    else 
+        name = node->identifier()->name();
+    
+    
+    const std::string &id = node->identifier()->name();
+    std::shared_ptr<zu::symbol> symbol = _symtab.find(id);
+    
+    if(symbol != NULL){
+        std::cerr <<  node->identifier()->name() + " already defined!" << std::endl;
+        exit(-1);        
+    }else if(symbol == NULL){
+        std::shared_ptr<zu::symbol> sy = std::make_shared<zu::symbol>(new basic_type(node->type()->size(), node->type()->name()), name, 0);
+        _symtab.insert(node->identifier()->name(), sy);
+    }
+    
+    if (name == "_main") {
+        _pf.EXTERN("printi");
+        _pf.EXTERN("prints");
+	_pf.EXTERN("printd");
+        _pf.EXTERN("println");
+        _pf.EXTERN("argc");
+        _pf.EXTERN("argv");
+        _pf.EXTERN("envp");
+    }
+    
+   
+    _pf.TEXT();
+    _pf.ALIGN();
+    if (node->isPublic()) 
+        _pf.GLOBAL(name, _pf.FUNC());
+    
+    _pf.LABEL(name);
+ 
+    // Determinar o tamanho que a funcao vai ocupar é visitar todas as suas declarations (dentro de ciclos e nos blocos) e somar.
+    // Estas 3 linhas calculam o tamanho das variaveis declaradas LOCALMENTE    
+    stack_counter sc(_compiler, _symtab);
+    node->accept(&sc, lvl+2);
+    size_t localsize = sc.size();
+    _retsize = node->type()->size();
+    
+    _symtab.push();
+    
+    /************************************************************************/
+    
+    int size_args = 8;  //ret + oldfp
+    cdk::sequence_node *args = node->arguments();
+    
+    if (args != NULL) {
+        //Tamanho dos argumentos + ret + oldfp
+        for (size_t i = 0; i < args->size(); i++) {
+            zu::declaration_node *arg = (zu::declaration_node*)args->node(i);
+            size_args += arg->type()->size();
+        }
+        int offset_args = 8;
+        
+
+        //IF DOUBLE RETURN
+        if (node->type()->name() != basic_type::TYPE_VOID && (node->type()->name() == basic_type::TYPE_DOUBLE)){
+            offset_args = 16; 
+        }else if (node->type()->name() != basic_type::TYPE_VOID){
+            offset_args = 12;
+        }
+        
+        std::shared_ptr<zu::symbol> func = _symtab.find(node->identifier()->name());
+        func->offset(size_args - 8);
+        for (size_t i = 0; i < args->size(); i++) {
+            zu::declaration_node *arg = (zu::declaration_node*)args->node(i);
+            zu::symbol *sym = new zu::symbol(new basic_type(arg->type()->size(), arg->type()->name()), arg->identifier()->name(), offset_args);
+            //std::cout << "pilha offsets args : " << offset_args << std::endl;
+            offset_args += arg->type()->size();
+            std::shared_ptr<zu::symbol> symbol(sym);
+            _symtab.insert(arg->identifier()->name(), symbol);
+        }
+        
+    }
+    
+    //COLOCA RETURN NA TABELA DE SIMBOLOS
+    if (node->type()->name() != basic_type::TYPE_VOID) {
+        zu::symbol *sym1 = new zu::symbol(new basic_type(node->type()->size(),node->type()->name()), node->identifier()->name() , 8);
+        std::shared_ptr<zu::symbol> symbol1(sym1);
+        _symtab.insert(node->identifier()->name(), symbol1);
+        sym1->function(true);
+    }else{
+        _isVoid = true;
+    }
+ 
+    /************************************************************************/
+
+    
+    _pf.ENTER(localsize);
+    
+    
+    // Inicializacao do leftValue especial de uma funcao (accept do default - retval)
+   
+    if (node->literal() != nullptr) {
+        node->literal()->accept(this, lvl+2);
+        _pf.LOCAL(8);
+    
+        if(node->type()->name() == basic_type::TYPE_DOUBLE)
+            _pf.DSTORE();
+        else
+            _pf.STORE();
+    }/* else {
+        
+    }
+   */
+   
+    node->block()->accept(this, lvl+2);
+    
+
+   
+    _pf.LOCV(8);
+    if(node->type()->name() == basic_type::TYPE_DOUBLE)
+        _pf.DPOP();
+    else
+        _pf.POP();
+    
+    _symtab.pop();
+    _pf.LEAVE();
+    _pf.RET();
+    _global = true;
+    
+}
+
+
+void zu::postfix_writer::do_address_node(zu::address_node * const node, int lvl) {
+    CHECK_TYPES(_compiler,_symtab,node);
+    node->argument()->accept(this, lvl+2);
+}
+
+void zu::postfix_writer::do_index_node(zu::index_node * const node, int lvl) {
+    CHECK_TYPES(_compiler,_symtab,node);
+    node->pointer()->accept(this, lvl+2);
+    _pf.LOAD();
+    node->argument()->accept(this, lvl+2);
+    _pf.LOAD();
+    _pf.INT(node->pointer()->type()->subtype()->size());
+    _pf.MUL();
+    _pf.ADD();
+    
+}
+void zu::postfix_writer::do_identity_node(zu::identity_node * const node, int lvl) {
+    CHECK_TYPES(_compiler,_symtab,node);
+    node->argument()->accept(this, lvl+2);
+
+}
+
+void zu::postfix_writer::do_alloc_node(zu::alloc_node * const node, int lvl) {
+    CHECK_TYPES(_compiler,_symtab,node);
+    node->argument()->accept(this, lvl+2);
+
+}
+
+
+void zu::postfix_writer::do_declaration_node(zu::declaration_node * const node, int lvl){
+    CHECK_TYPES(_compiler, _symtab, node);
+    if (_global) {
+        std::shared_ptr<zu::symbol> symbol = _symtab.find(node->identifier()->name());
+        if (symbol != NULL) {
+             std::cerr << "ERROR: redefinition of '" << node->identifier()->name() << "'\n";
+             exit(-1);
+        }
+        
+        std::shared_ptr<zu::symbol> sy = std::make_shared<zu::symbol>(node->type(), node->identifier()->name(), 0);
+        sy->isPublic(true);
+        if (node->external())
+            sy->external(true);
+        _symtab.insert(node->identifier()->name(), sy);
+    
+        
+        if (node->value() == NULL) {
+            _pf.BSS();
+            _pf.ALIGN();
+            _pf.GLOBAL(node->identifier()->name(), _pf.OBJ());
+            _pf.LABEL(node->identifier()->name());
+            _pf.BYTE(node->type()->size());            
+        }  else {
+
+            //node->value()->accept(this, lvl);
+
+            if(node->type()->name() == basic_type::TYPE_INT) {
+
+                _pf.DATA();
+                _pf.ALIGN();
+                _pf.GLOBAL(node->identifier()->name(), _pf.OBJ());
+                _pf.LABEL(node->identifier()->name());
+                node->value()->accept(this, lvl);
+                //_pf.CONST(((cdk::simple_value_node<int>*)node->value())->value());
+            }
+            
+            else if(node->type()->name() == basic_type::TYPE_DOUBLE) {
+                _pf.DATA();
+                _pf.ALIGN();
+                _pf.GLOBAL(node->identifier()->name(), _pf.OBJ());
+                _pf.LABEL(node->identifier()->name());
+                node->value()->accept(this, lvl);
+                //_pf.DOUBLE(((cdk::simple_value_node<double>*)node->value())->value()); 
+            }
+            
+            else if(node->type()->name() == basic_type::TYPE_STRING) {
+                //String e literal?
+                _pf.RODATA();
+                _pf.ALIGN();
+                _pf.LABEL(mklbl(++_lbl));
+                _pf.STR(((cdk::simple_value_node<std::string>*)node->value())->value());
+                _pf.DATA();
+                _pf.ALIGN();
+                _pf.GLOBAL(node->identifier()->name(), _pf.OBJ());
+                _pf.LABEL(node->identifier()->name());
+                _pf.ID(mklbl(_lbl));
+            }
+            
+            else if (node->type()->name() == basic_type::TYPE_POINTER)
+                //Ponteiros sao sempre 0
+                _pf.INT(0);
+            
+                
+        }
+        return;
+        
+    }
+    else {
+        std::shared_ptr<zu::symbol> symbol = _symtab.find_local(node->identifier()->name());
+    
+
+        if (symbol != NULL) {
+             std::cerr << "ERROR: redefinition of '" << node->identifier()->name() << "'\n";
+             exit(-1);
+        }
+        _stackpointer -= node->type()->size();
+    
+
+        std::shared_ptr<zu::symbol> sy = std::make_shared<zu::symbol>(node->type(), node->identifier()->name(), _stackpointer);
+        _symtab.insert(node->identifier()->name(), sy);
+        
+        
+        if (node->value() != NULL) {
+            node->value()->accept(this, lvl+2);
+        }
+
+        if (node->type()->name() == basic_type::TYPE_DOUBLE) {
+            _pf.LOCAL(sy->offset());
+            _pf.DSTORE();
+        }
+        else
+            _pf.LOCA(sy->offset());
+    }
+    
+}
+
+void zu::postfix_writer::do_identifier_node(zu::identifier_node * const node, int lvl){
+    CHECK_TYPES(_compiler, _symtab, node);
+    
+    std::shared_ptr<zu::symbol> symbol = _symtab.find(node->name());
+    if (symbol == NULL) {std::shared_ptr<zu::symbol> symbol = _symtab.find(node->name());
+        if (symbol != NULL) {
+             std::cerr << "ERROR: redefinition of '" << node->name() << "'\n";
+             exit(-1);
+        }
+        std::cerr << "ERROR: symbol '" << node->name() << "' not found\n";
+        exit(-1);
+    }
+    
+    //Se for local
+    if(symbol->offset() != 0)
+        _pf.LOCAL(symbol->offset());
+    else
+        _pf.ADDR(node->name());
+}

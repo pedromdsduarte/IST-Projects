@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<DomoBusSystem ID="1" Name="Novo" Type="." Version="1.0" Date="2009">
+  <AccessLevelList>
+    <AccessLevel Level="0" Name="Free Access" />
+    <AccessLevel Level="1" Name="Guest" />
+    <AccessLevel Level="2" Name="Common User - Child" />
+    <AccessLevel Level="3" Name="Common User - Parent" />
+    <AccessLevel Level="10" Name="Administrator" />
+  </AccessLevelList>
+  <UserList>
+    <User ID="1" Name="abcd" Password="efgh" AccessLevel="2" />
+    <User ID="2" Name="ijkl" Password="mnop" AccessLevel="10" />
+  </UserList>
+  <ServiceList>
+    <Service ID="1" Name="Aquecimento" />
+    <Service ID="2" Name="Iluminação" />
+    <Service ID="3" Name="Alarme" />
+    <Service ID="4" Name="Tomadas" />
+    <Service ID="5" Name="Irrigação" />
+  </ServiceList>
+  <ConversionFormulaList>
+    <ConversionFormula ID="1" Name="Converte para dobro" UserToSystem="2*X" SystemToUser="X/2" DecimalPlaces="0" />
+    <ConversionFormula ID="2" Name="10*X+200" UserToSystem="10*X+200" SystemToUser="(X-200)/10" DecimalPlaces="1" />
+    <ConversionFormula ID="3" Name="Converte para o triplo" UserToSystem="3*X" SystemToUser="X/3" DecimalPlaces="0" />
+  </ConversionFormulaList>
+  <ConversionObjectList>
+    <ConversionObject ID="1" Name="Intensidade - lux" UserToSystemObj="1" SystemToUserObj="2" DecimalPlaces="2" />
+    <ConversionObject ID="2" Name="Intensidade - lux" UserToSystemObj="1" SystemToUserObj="2" DecimalPlaces="2" />
+  </ConversionObjectList>
+  <ScalarValueTypeList>
+    <ScalarValueType ID="1" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="100" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="2" Name="Potencia" NumBits="16" MinValue="0" MaxValue="800" Step="10">
+      <ValueConversion Type="FORMULA" Ref="2" />
+    </ScalarValueType>
+    <ScalarValueType ID="3" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="300" Step="1">
+      <ValueConversion Type="OBJ" Ref="2" />
+    </ScalarValueType>
+    <ScalarValueType ID="4" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="FORMULA" Ref="3" />
+    </ScalarValueType>
+  </ScalarValueTypeList>
+  <EnumValueTypeList>
+    <EnumValueType ID="1" Name="On-Off">
+      <Enumerated Name="Off" Value="0" />
+      <Enumerated Name="On" Value="1" />
+    </EnumValueType>
+    <EnumValueType ID="2" Name="Comando Ar Condicionado">
+      <Enumerated Name="Desligado" Value="0" />
+      <Enumerated Name="Aquecer" Value="1" />
+      <Enumerated Name="Arrefecer" Value="2" />
+    </EnumValueType>
+    <EnumValueType ID="3" Name="Off-vermelho-verde">
+      <Enumerated Name="Off" Value="0" />
+      <Enumerated Name="Vermelho" Value="1" />
+      <Enumerated Name="Verde" Value="2" />
+    </EnumValueType>
+    <EnumValueType ID="4" Name="On-Off2">
+      <Enumerated Name="Off" Value="0" />
+      <Enumerated Name="On" Value="1" />
+    </EnumValueType>
+  </EnumValueTypeList>
+  <ArrayValueTypeList>
+    <ArrayValueType ID="1" Name="Nome Empresa" MaxLen="10">
+      <ValueConversion Type="NONE" Ref="" />
+    </ArrayValueType>
+    <ArrayValueType ID="2" Name="Float IEEE" MaxLen="8">
+      <ValueConversion Type="OBJ" Ref="1" />
+    </ArrayValueType>
+  </ArrayValueTypeList>
+  <DeviceClassList>
+    <DeviceClass ID="1" Name="Iluminação" />
+    <DeviceClass ID="2" Name="Aquecimento" />
+    <DeviceClass ID="3" Name="Segurança" />
+  </DeviceClassList>
+  <ConfigurationTypeList>
+    <ConfigurationType ID="1" Name="Config xx">
+      <MaxLimit MaxValue="10" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="10" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="0" Units="segundos" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="2" Name="Config 2">
+      <MaxLimit MaxValue="100" MinValue="10" Units="graus" />
+      <MinLimit MaxValue="100" MinValue="10" Units="graus" />
+      <Variation MaxValue="100" MinValue="10" Units="graus" />
+      <NotifyRate MaxValue="100" MinValue="10" Units="segundos" />
+      <StateChange MaxValue="100" MinValue="10" Units="segundos" />
+      <Condition MaxValue="3" />
+    </ConfigurationType>
+    <ConfigurationType ID="3" Name="Config lampadas">
+      <MaxLimit MaxValue="10" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="10" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="segundos" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="4" Name="Config butoes">
+      <NotifyRate MaxValue="10" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="0" Units="segundos" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="5" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="0" Units="segundos" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="6" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="segundos" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+  </ConfigurationTypeList>
+  <DeviceTypeList>
+    <DeviceType ID="1" Name="Lâmpada-Regulada" RefDeviceClass="1" Description="Lampada Regulada">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="On-Off" AccessMode="RW" ValueType="ENUM" RefValueType="1" RefConfigType="1" />
+        <PropertyType ID="2" Name="Intensidade" AccessMode="RW" ValueType="SCALAR" RefValueType="1" RefConfigType="1" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="2" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="1" RefConfigType="1" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="3" Name="Push-Button-estado" RefDeviceClass="1" Description="Push-Button com estado">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="On-Off" AccessMode="RO" ValueType="ENUM" RefValueType="1" RefConfigType="1" />
+        <PropertyType ID="2" Name="Estado" AccessMode="RW" ValueType="ENUM" RefValueType="1" RefConfigType="1" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="7" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="4" RefConfigType="5" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="8" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="4" RefConfigType="6" />
+      </PropertyTypeList>
+    </DeviceType>
+  </DeviceTypeList>
+  <AvaibleModuleDeviceList>
+    <ModuleDevice ID="1" LocalAddress="10" RefDeviceType="1" Description="lampada" />
+    <ModuleDevice ID="2" LocalAddress="11" RefDeviceType="8" Description="sensor humidade" />
+  </AvaibleModuleDeviceList>
+  <HouseList>
+    <House ID="1" Name="Vivenda Silva" Address="xxxxx" Phone="xxxx">
+      <FloorList>
+        <Floor ID="1" Name="Cave" HeightOrder="-1">
+          <DivisionList>
+            <Division ID="1" Name="Cave" AccessLevel="1" />
+          </DivisionList>
+        </Floor>
+        <Floor ID="2" Name="R/C" HeightOrder="0">
+          <DivisionList>
+            <Division ID="2" Name="Cozinha" AccessLevel="3" />
+            <Division ID="3" Name="Sala" AccessLevel="2" />
+            <Division ID="4" Name="Hall" AccessLevel="2" />
+          </DivisionList>
+        </Floor>
+        <Floor ID="3" Name="Sótão" HeightOrder="1">
+          <DivisionList>
+            <Division ID="5" Name="Sótão" AccessLevel="2" />
+          </DivisionList>
+        </Floor>
+      </FloorList>
+    </House>
+  </HouseList>
+  <DeviceList>
+    <Device ID="1" RefDeviceType="1" Name="Candeeiro-Mesa" Address="1010" SupervisorAddress="#10" RefHouse="1" RefDivision="2" MonAccessLevel="3" ControlAccessLevel="10" UserBlockedMon="-" UserBlockedControl="2">
+      <DeviceServiceList>
+        <DeviceService RefService="2" />
+        <DeviceService RefService="4" />
+      </DeviceServiceList>
+      <ConfigurationList>
+        <MaxLimitConfig RefProperty="1" Value="10" />
+        <MinLimitConfig RefProperty="1" Value="1" />
+        <VariationConfig RefProperty="1" Value="10" />
+        <NotifyRateConfig RefProperty="1" Value="1" />
+        <StateChangeConfig RefProperty="1" Value="10" />
+        <MaxLimitConfig RefProperty="2" Value="10" />
+        <MinLimitConfig RefProperty="2" Value="1" />
+        <VariationConfig RefProperty="2" Value="10" />
+        <NotifyRateConfig RefProperty="2" Value="1" />
+        <StateChangeConfig RefProperty="2" Value="10" />
+        <ConditionConfig RefProperty="1" Operator="EQ" Value="10" />
+        <ConditionConfig RefProperty="1" Operator="NE" Value="10" />
+        <ConditionConfig RefProperty="2" Operator="EQ" Value="10" />
+      </ConfigurationList>
+    </Device>
+    <Device ID="2" RefDeviceType="1" Name="Butão-Luz-Hall" Address="1011" SupervisorAddress="#10" RefHouse="1" RefDivision="2" MonAccessLevel="3" ControlAccessLevel="10" UserBlockedMon="-" UserBlockedControl="2">
+      <DeviceServiceList>
+        <DeviceService RefService="2" />
+      </DeviceServiceList>
+      <ConfigurationList>
+        <MaxLimitConfig RefProperty="1" Value="10" />
+        <MinLimitConfig RefProperty="1" Value="1" />
+        <VariationConfig RefProperty="1" Value="10" />
+        <NotifyRateConfig RefProperty="1" Value="1" />
+        <StateChangeConfig RefProperty="1" Value="10" />
+        <ConditionConfig RefProperty="1" Operator="EQ" Value="10" />
+      </ConfigurationList>
+    </Device>
+    <Device ID="4" RefDeviceType="7" Name="sensor temp" Address="1012" SupervisorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList>
+        <MaxLimitConfig RefProperty="1" Value="10" />
+        <MinLimitConfig RefProperty="1" Value="10" />
+        <VariationConfig RefProperty="1" Value="10" />
+        <NotifyRateConfig RefProperty="1" Value="10" />
+        <StateChangeConfig RefProperty="1" Value="10" />
+        <ConditionConfig RefProperty="1" Operator="EQ" Value="10" />
+      </ConfigurationList>
+    </Device>
+  </DeviceList>
+  <MacroList>
+    <Macro ID="1" Name="Ver TV">
+      <ActionList>
+        <Action ID="1" Name="Fecha Estore" RefDevice="1" RefProperty="1" Value="0" />
+        <Action ID="2" Name="Candeeiro 50%" RefDevice="1" RefProperty="2" Value="50" />
+        <Action ID="3" Name="LampTecto 40%" RefDevice="1" RefProperty="2" Value="40" />
+      </ActionList>
+    </Macro>
+  </MacroList>
+  <ScenarioList>
+    <Scenario ID="1" Name="ligar lampada quarto">
+      <ActionList>
+        <Action ID="1" Name="aceder a luz" RefDevice="1" RefProperty="2" Value="1" />
+      </ActionList>
+      <DesactivationList>
+        <Action ID="1" Name="aceder a luz" RefDevice="1" RefProperty="1" Value="0" />
+      </DesactivationList>
+      <Condition>
+        <Logic Type="AND">
+          <ConditionExpression RefDevice="1" RefProperty="1" Operator="LT" Value="20" Description="Se está escuro" />
+          <ConditionExpression RefDevice="2" RefProperty="1" Operator="EQ" Value="1" Description="Se detector de presença activo" />
+          <Logic Type="AND">
+            <ConditionExpression RefDevice="1" RefProperty="1" Operator="LT" Value="20" Description="Se está escuro1" />
+            <ConditionExpression RefDevice="2" RefProperty="1" Operator="EQ" Value="1" Description="Se detector de presença activo1" />
+          </Logic>
+          <Logic Type="OR">
+            <ConditionExpression RefDevice="1" RefProperty="1" Operator="LT" Value="20" Description="Se está escuro2" />
+            <ConditionExpression RefDevice="2" RefProperty="1" Operator="EQ" Value="1" Description="Se detector de presença activo2" />
+          </Logic>
+        </Logic>
+      </Condition>
+    </Scenario>
+  </ScenarioList>
+</DomoBusSystem>

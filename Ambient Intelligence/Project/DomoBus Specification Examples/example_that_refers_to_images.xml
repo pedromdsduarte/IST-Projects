@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<DomoBusSystem ID="42" Name="Example - Images" Version="007" Date="01/03/2075">
+
+	<!-- Especificação dos diferentes níveis de acesso existentes que definem o grau de importância do utilizador -->
+	<AccessLevelList> 
+		<AccessLevel Level="0" Name="Free Access"/>
+		<AccessLevel Level="1" Name="Guest"/>
+		<AccessLevel Level="2" Name="Common User - Child"/>
+		<AccessLevel Level="4" Name="Common User - Parent"/>
+		<AccessLevel Level="9" Name="Administrator"/>
+	</AccessLevelList>
+
+	<!-- Especificação dos diferentes utilizadores, bem como a sua password, nível de acesso e dispositivos, cenários, serviços, etc. -->
+	<UserList>
+		<User AccessLevel="2" ID="1" Name="M" Password="m"/>
+		<User AccessLevel="9" ID="2" Name="" Password=""/>
+	</UserList>
+
+	<!-- Especificação dos favoritos dos diferentes utilizadores -->
+	<Favorites>
+		<FavoriteList RefUser="1">
+			<FavoriteDevice ID="1" RefDevice="1"/>
+		</FavoriteList>
+		<FavoriteList RefUser="2">
+			<FavoriteDevice ID="1" RefDevice="1"/>
+			<FavoriteDevice ID="2" RefDevice="2"/>
+			<FavoriteType ID="3" RefType="1"/>                                                                		<FavoriteDivision ID="4" RefDivision="2"/>
+			</FavoriteList>
+	</Favorites>
+
+	<!-- Especificação da habitação, nomeadamente os seus pisos e divisões -->
+	<House Address="*** *********** ****" ID="1" Name="House of Miguel Martinho" Phone="*********">
+		<FloorList>
+			<Floor HeightOrder="-1" ID="1" Name="Basement"/>
+			<Floor HeightOrder="0" ID="2" Name="Ground-floor"/>
+			<Floor HeightOrder="1" ID="3" Name="Up-floor"/>
+		</FloorList>
+		<DivisionList>
+			<Division AccessLevel="1" ID="1" Name="Basement" RefFloor="1"/>
+			<Division AccessLevel="3" ID="2" Name="Kitchen" RefFloor="2"/>
+			<Division AccessLevel="2" ID="3" Name="Living-room" RefFloor="2"/>
+			<Division AccessLevel="2" ID="4" Name="Hall" RefFloor="2"/>
+			<Division AccessLevel="2" ID="5" Name="Attic" RefFloor="3"/>
+		</DivisionList>
+	</House>
+
+	<!-- Especificação dos tipos/classes dos dispositivos existentes -->
+	<DeviceClassList>
+		<DeviceClass ID="1" Name="Lighting"/>
+		<DeviceClass ID="2" Name="Heating"/>
+		<DeviceClass ID="3" Name="Security"/>
+		<DeviceClass ID="4" Name="Appliances"/>
+	</DeviceClassList>
+
+	<!-- Especificação das fórmulas de conversão de valores para obter os resultados pretendidos -->
+	<ConversionFormulaList>
+		<ConversionFormula DecimalPlaces="0" ID="1" Name="Doubles the value" SystemToUser="X/2" UserToSystem="2*X"/>
+	</ConversionFormulaList>
+
+	<!-- Especificação de fórmulas mais complexas de conversão de valores que não podem ser expressas por apenas uma fórmula-->
+	<ConversionObjectList>
+		<ConversionObject DecimalPlaces="2" ID="1" Name="Intensity - lux" SystemToUserObj="2" UserToSystemObj="1"/>
+	</ConversionObjectList>
+
+	<!-- Especificação dos tipos de valores escalares e suas condições-->
+	<ScalarValueTypeList>
+		<ScalarValueType ID="1" MaxValue="100" MinValue="0" Name="Percentage (0-100)" NumBits="8" Step="1" Units="%">
+			<ValueConversion Ref="1" Type="OBJECT"/>
+		</ScalarValueType>
+		<ScalarValueType ID="2" MaxValue="400" MinValue="0" Name="Power" NumBits="16" Step="10" Units="W">
+			<ValueConversion Ref="1" Type="FORMULA"/>
+		</ScalarValueType>
+		<ScalarValueType ID="3" MaxValue="100" MinValue="1" Name="Channel" NumBits="8" Step="1" Units="">
+			<ValueConversion Ref="1" Type="OBJECT"/>
+		</ScalarValueType>
+		<ScalarValueType ID="4" MaxValue="40" MinValue="10" Name="Temperature" NumBits="8" Step="1" Units="ºC">
+			<ValueConversion Ref="1" Type="OBJECT"/>
+		</ScalarValueType>
+	</ScalarValueTypeList>
+
+	<!-- Especificação dos tipos de valores enumerados e as opções existentes -->
+	<EnumValueTypeList>
+		<EnumValueType ID="1" Name="On-Off">
+			<Enumerated Name="Off" Value="0"/>
+			<Enumerated Name="On" Value="1"/>
+		</EnumValueType>
+		<EnumValueType ID="2" Name="AC-Heater Commands">
+			<Enumerated Name="Off" Value="0"/>
+			<Enumerated Name="Cooling" Value="1"/>
+			<Enumerated Name="Heating" Value="2"/>
+		</EnumValueType>
+		<EnumValueType ID="3" Name="Movsensor">
+			<Enumerated Name="Nondetected" Value="0"/>
+			<Enumerated Name="Detected" Value="1"/>
+		</EnumValueType>
+		<EnumValueType ID="4" Name="Status">
+			<Enumerated Name="Open" Value="0"/>
+			<Enumerated Name="Half" Value="1"/>
+			<Enumerated Name="Close" Value="2"/>
+		</EnumValueType>
+	</EnumValueTypeList>
+
+	<!-- Especificação dos tipos de valores em vector, o tamanho desse vector e respectivo tipo de conversão usado -->
+	<ArrayValueTypeList>
+		<ArrayValueType ID="1" MaxLen="10" Name="Company name">
+			<ValueConversion Ref="" Type="NONE"/>
+		</ArrayValueType>
+	</ArrayValueTypeList>
+
+	<!-- Especificação dos tipos de dispositivos existentes e as suas propriedades-->
+	<DeviceTypeList>
+		<DeviceType Description="-" ID="1" Name="Adjustable Casement - Blinds , Window" RefDeviceClass="3" ImageDefault="Images/Blinds_Default.jpg">
+			<PropertyList>
+				<Property AccessMode="RW" ID="1" ImagePath="Images/OnOff.jpg" Name="Status" OpMode="NORMAL" RefValueType="4" ValueType="ENUM"/>
+				<Property AccessMode="RW" ID="2" ImagePath="Images/Mode.jpg" Name="Position" OpMode="NORMAL" RefValueType="1" ValueType="SCALAR"/>
+			</PropertyList>
+			<ImageList>
+				<Image ID="1" RefProperty="1" ValueRange="0-0" ImagePath="Images/Blinds_Open.jpg"/>
+				<Image ID="2" RefProperty="1" ValueRange="1-1" ImagePath="Images/Blinds_Half.jpg"/>
+				<Image ID="3" RefProperty="1" ValueRange="2-2" ImagePath="Images/Blinds_Close.jpg"/>
+			</ImageList>
+		</DeviceType>
+		<DeviceType Description="-" ID="2" Name="Adjustable Light - Cand , Lamp" RefDeviceClass="1" ImageDefault="Images/Cand_Default.jpg">
+			<PropertyList>
+				<Property AccessMode="RW" ID="1" ImagePath="Images/OnOff.jpg" Name="On-Off" OpMode="NORMAL" RefValueType="1" ValueType="ENUM"/>
+				<Property AccessMode="RW" ID="2" ImagePath="Images/Luminosity.jpg" Name="Luminosity" OpMode="NORMAL" RefValueType="1" ValueType="SCALAR"/>
+				<Property AccessMode="RW" ID="3" ImagePath="Images/cenas.jpg" Name="Lamp name" OpMode="NORMAL" RefValueType="1" ValueType="ARRAY"/>
+			</PropertyList>
+			<ImageList>
+				<Image ID="1" RefProperty="2" ValueRange="0-0" ImagePath="Images/Cand_Off.jpg"/>
+				<Image ID="2" RefProperty="1" ValueRange="0-0" ImagePath="Images/Cand_Off.jpg"/>
+				<Image ID="3" RefProperty="1" ValueRange="1-1" ImagePath="Images/Cand_On.jpg"/>
+			</ImageList>
+		</DeviceType>
+		<DeviceType Description="-" ID="3" Name="TV" RefDeviceClass="4" ImageDefault="Images/TV_Default.jpg">
+			<PropertyList>
+				<Property AccessMode="RW" ID="1" ImagePath="Images/OnOff.jpg" Name="On-Off" OpMode="NORMAL" RefValueType="1" ValueType="ENUM"/>
+				<Property AccessMode="RW" ID="2" ImagePath="Images/Sound.jpg" Name="Volume" OpMode="NORMAL" RefValueType="1" ValueType="SCALAR"/>
+				<Property AccessMode="RW" ID="3" ImagePath="Images/Luminosity.jpg" Name="Luminosity" OpMode="NORMAL" RefValueType="1" ValueType="SCALAR"/>
+				<Property AccessMode="RW" ID="4" ImagePath="Images/Mode.jpg" Name="Channel" OpMode="NORMAL" RefValueType="3" ValueType="SCALAR"/>
+			</PropertyList>
+			<ImageList>
+				<Image ID="1" RefProperty="1" ValueRange="0-0" ImagePath="Images/TV_Off.jpg"/>
+				<Image ID="2" RefProperty="4" ValueRange="1-50" ImagePath="Images/TV_1.jpg"/>
+				<Image ID="3" RefProperty="4" ValueRange="51-100" ImagePath="Images/TV_2.jpg"/>
+			</ImageList>
+		</DeviceType>
+		<DeviceType Description="-" ID="4" Name="AC" RefDeviceClass="2" ImageDefault="Images/AC_Default.jpg">
+			<PropertyList>
+				<Property AccessMode="RW" ID="1" ImagePath="Images/OnOff.jpg" Name="AC Commands" OpMode="NORMAL" RefValueType="2" ValueType="ENUM"/>
+				<Property AccessMode="RW" ID="2" ImagePath="Images/Motor.jpg" Name="Power" OpMode="NORMAL" RefValueType="2" ValueType="SCALAR"/>
+				<Property AccessMode="RW" ID="3" ImagePath="Images/Temperature.jpg" Name="Temperature" OpMode="NORMAL" RefValueType="4" ValueType="SCALAR"/>
+			</PropertyList>
+			<ImageList>
+				<Image ID="1" RefProperty="1" ValueRange="0-0" ImagePath="Images/AC_Off.jpg"/>
+				<Image ID="2" RefProperty="1" ValueRange="1-1" ImagePath="Images/AC_Cooling.jpg"/>
+				<Image ID="3" RefProperty="1" ValueRange="2-2" ImagePath="Images/AC_Heating.jpg"/>
+			</ImageList>
+		</DeviceType>
+		<DeviceType Description="-" ID="5" Name="Heater" RefDeviceClass="2" ImageDefault="Images/Heater_Default.jpg">
+			<PropertyList>
+				<Property AccessMode="RW" ID="1" ImagePath="Images/OnOff.jpg" Name="Heater Commands" OpMode="NORMAL" RefValueType="2" ValueType="ENUM"/>
+				<Property AccessMode="RW" ID="2" ImagePath="Images/Temperature.jpg" Name="Temperature" OpMode="NORMAL" RefValueType="4" ValueType="SCALAR"/>
+				<Property AccessMode="RW" ID="3" ImagePath="Images/Motor.jpg" Name="Power" OpMode="NORMAL" RefValueType="2" ValueType="SCALAR"/>
+			</PropertyList>
+			<ImageList>
+				<Image ID="1" RefProperty="1" ValueRange="0-0" ImagePath="Images/Heater_Off.jpg"/>
+				<Image ID="2" RefProperty="1" ValueRange="1-1" ImagePath="Images/Heater_Cooling.jpg"/>
+				<Image ID="3" RefProperty="1" ValueRange="2-2" ImagePath="Images/Heater_Heating.jpg"/>
+			</ImageList>
+		</DeviceType>
+		<DeviceType Description="-" ID="6" Name="Movsensor" RefDeviceClass="3" ImageDefault="Images/Movsensor_Default.jpg">
+			<PropertyList>
+				<Property AccessMode="RW" ID="1" ImagePath="Images/Mode.jpg" Name="Mode" OpMode="NORMAL" RefValueType="3" ValueType="ENUM"/>
+			</PropertyList>
+			<ImageList>
+				<Image ID="1" RefProperty="1" ValueRange="0-0" ImagePath="Images/Movsensor_Nondetected.jpg"/>
+				<Image ID="2" RefProperty="1" ValueRange="1-1" ImagePath="Images/Movsensor_Detected.jpg"/>
+			</ImageList>
+		</DeviceType>
+		<DeviceType Description="-" ID="7" Name="Tempsensor" RefDeviceClass="3" ImageDefault="Images/Tempsensor_Default.jpg">
+			<PropertyList>
+				<Property AccessMode="RW" ID="1" ImagePath="Images/Temperature.jpg" Name="Temperature" OpMode="NORMAL" RefValueType="4" ValueType="SCALAR"/>
+			</PropertyList>
+			<ImageList >
+				<Image ID="1" RefProperty="1" ValueRange="0-20" ImagePath="Images/Tempsensor_Cold.jpg"/>
+				<Image ID="2" RefProperty="1" ValueRange="20-30" ImagePath="Images/Tempsensor_Mid.jpg"/>
+				<Image ID="3" RefProperty="1" ValueRange="30-50" ImagePath="Images/Tempsensor_Heat.jpg"/>
+			</ImageList>
+		</DeviceType>
+		<DeviceType Description="-" ID="8" Name="Alarm" RefDeviceClass="3" ImageDefault="Images/Alarm_Default.jpg">
+			<PropertyList>
+				<Property AccessMode="RW" ID="1" ImagePath="Images/OnOff.jpg" Name="On-Off" OpMode="NORMAL" RefValueType="1" ValueType="ENUM"/>
+			</PropertyList>
+			<ImageList>
+				<Image ID="1" RefProperty="1" ValueRange="0-0" ImagePath="Images/Alarm_Off.jpg"/>
+				<Image ID="2" RefProperty="1" ValueRange="1-1" ImagePath="Images/Alarm_On.jpg"/>
+			</ImageList>
+		</DeviceType>
+	</DeviceTypeList>
+
+	<!-- Especificação dos dispositivos existentes no sistema e as suas propriedades e localização -->
+	<DeviceList>
+		<Device AccessLevel="9,9" Address="0100" ID="1" Name="Kitchen_Cand" RefDeviceType="2" RefDivision="2" UserBlocked="2,2">
+			<DeviceServiceList>
+				<DeviceService RefService="1"/>
+				<DeviceService RefService="4"/>
+			</DeviceServiceList>
+		</Device>
+		<Device AccessLevel="1,1" Address="0200" ID="2" Name="Kitchen_Lamp" RefDeviceType="2" RefDivision="2" UserBlocked="1,1">
+			<DeviceServiceList>
+				<DeviceService RefService="1"/>
+				<DeviceService RefService="4"/>
+			</DeviceServiceList>
+		</Device>
+		<Device AccessLevel="1,1" Address="0300" ID="3" Name="Livingroom_AC" RefDeviceType="4" RefDivision="3" UserBlocked="-,1">
+			<DeviceServiceList>
+				<DeviceService RefService="2"/>
+				<DeviceService RefService="4"/>
+			</DeviceServiceList>
+		</Device>
+		<Device AccessLevel="1,1" Address="0400" ID="4" Name="Kitchen_Heater" RefDeviceType="5" RefDivision="2" UserBlocked="1,1">
+			<DeviceServiceList>
+				<DeviceService RefService="2"/>
+				<DeviceService RefService="4"/>
+			</DeviceServiceList>
+		</Device>
+		<Device AccessLevel="1,1" Address="0500" ID="5" Name="Kitchen_Blinds" RefDeviceType="1" RefDivision="2" UserBlocked="1,1">
+			<DeviceServiceList>
+				<DeviceService RefService="3"/>
+				<DeviceService RefService="4"/>
+			</DeviceServiceList>
+		</Device>
+		<Device AccessLevel="1,1" Address="0600" ID="6" Name="Kitchen_TV" RefDeviceType="3" RefDivision="2" UserBlocked="1,1">
+			<DeviceServiceList>
+				<DeviceService RefService="1"/>
+				<DeviceService RefService="4"/>
+			</DeviceServiceList>
+		</Device>
+		<Device AccessLevel="1,1" Address="0700" ID="7" Name="Kitchen_Movsensor" RefDeviceType="6" RefDivision="2" UserBlocked="1,1">
+			<DeviceServiceList>
+				<DeviceService RefService="3"/>
+				<DeviceService RefService="4"/>
+			</DeviceServiceList>
+		</Device>
+		<Device AccessLevel="1,9" Address="0800" ID="8" Name="Livingroom_TV" RefDeviceType="3" RefDivision="3" UserBlocked="1,2">
+			<DeviceServiceList>
+				<DeviceService RefService="1"/>
+				<DeviceService RefService="4"/>
+			</DeviceServiceList>
+		</Device>
+		<Device AccessLevel="9,1" Address="0900" ID="9" Name="Kitchen_Window" RefDeviceType="1" RefDivision="2" UserBlocked="2,1">
+			<DeviceServiceList>
+				<DeviceService RefService="3"/>
+				<DeviceService RefService="4"/>
+			</DeviceServiceList>
+		</Device>
+		<Device AccessLevel="9,9" Address="1000" ID="10" Name="Kitchen_Tempsensor" RefDeviceType="7" RefDivision="2" UserBlocked="2,2">
+			<DeviceServiceList>
+				<DeviceService RefService="3"/>
+				<DeviceService RefService="4"/>
+			</DeviceServiceList>
+		</Device>
+	</DeviceList>
+
+	<!-- Especificação dos tipos de serviços existentes -->
+	<ServiceList>
+		<Service ID="1" Name="Lighting"/>
+		<Service ID="2" Name="Heating"/>
+		<Service ID="3" Name="Security"/>
+		<Service ID="4" Name="Appliances"/>
+	</ServiceList>
+	
+</DomoBusSystem>

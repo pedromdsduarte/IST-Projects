@@ -1,0 +1,216 @@
+OpenGL - Máquina de estados
+
+glEnable(GLenum) - Ativa um dado estado;
+glDisable(GLenum) - Desactiva um dado estado;
+
+gllsEnabled(GLenum) - Verifica se um dado estado está activado;
+
+glGetBooleanv(GLenum); 
+glGetIntegerv(GLenum);
+glGetFloatv(GLenum);
+glGetDoublev(GLenum);
+glGetPointerv(GLenum);
+Interroga o sistema sobre o estado de uma determinada variável.
+
+//--------------------------------------------------------------//
+
+Registo de função de Retorno:
+	...
+	void glutKeyboardFunc(TeclaPremida)
+	...
+	
+Função de Retorno:
+	void TeclaPremida(unsigned char key, int x, int y){
+		if(key=='Q'||key=='q')
+			movimento = CIMA;
+	}
+	
+//--------------------------------------------------------------//
+
+Detalhes de um programa:
+
+	#1 - Inicializar e criar a janela:
+		void glutInit(&argc, argv);
+	Inicializa a biblioteca GLUT com os parametros do main, deve
+	ser invocado antes de chamar qualquer rotina da GLUT.
+	
+		void glutInitDisplayMode(GLUT_RGBA|GLUT_SINGLE);
+	Especifica o modo de display da janela criada.
+	
+		void glutInitWindowSize(int x, int y);
+	Define a dimensão da janela: largura e altura.
+	
+		void glutInitWindowPosition(int x, int y);
+	Define a posição da janela no dispositivo, origem canto 
+	superior esquerdo.
+	
+		void glutCreateWindow(char*);
+	Cria uma janela com o nome especificado, utilizadas as 
+	definições indicadas nas funções anteriores, retorna um
+	identificador único da janela.
+	
+	
+	#2 - Processar acontecimentos da janela e de input:
+		void glutDisplayFunc(void (*func)(void));
+	Define a função a ser chamada quando o conteúdo da janela
+	necessitar de ser redesenhado, é dentro desta função que se
+	coloca o que se quer desenhar na janela.
+	
+		void glutReshapeFunc(void (*func)(void));
+	Define a função a ser chamada quando existe o redimensionamento
+	ou movimento da janela.
+	
+		glutKeyboardFunc();
+		glutMouseFunc();
+		glutIdleFunc();
+	
+	
+	#3 - Correr o ciclo principal
+		void glutMainLoop(void);
+	Esta função entra na rotina de processamento de acontecimentos,
+	deve ser invocada uma única vez, depois de chamada entra em 
+	ciclo e nao sai. Irá invocar funções de callback sempre que 
+	necessário.
+	
+//--------------------------------------------------------------//
+	
+Função de Reshape:
+
+	#1 - Definir o viewport
+		void glViewport(Glint, Glint, GLsizei, GLsizei);
+						  x      y       w        h
+	glViewport(0, 0, w, h);
+	
+	
+	#2 - Definir a projecção
+		void glMatrixMode(GLenum);
+	Especifica qual é a pilha de matrizes que estará "activa",
+	as operações subsequentes irão afectar esta pilha.
+	glMatrixMode(GL_PROJECTION);
+	
+		void glLoadIdentity(void);
+	Substitui o conteúdo da matriz no topo da pilha actual pela
+	identidade. (Referida como matriz actual).
+	glLoadIdentity();
+	
+		void glOrtho(Gldouble left, Gldouble right, Gldouble buttom,
+						Gldouble top, Gldouble nearVal, Gldouble farVal);
+	define o volume de visualização para a projecção paralela ortogonal
+	(por omissão a camara está na origim), multiplica a matriz actual
+	por uma transformação de projecção.
+	glOrtho(-2.0f, 2.0f, -2.0f, 2.0f, -2.0f, 2.0f)
+	
+	
+	
+	#3 - Inicializar a matriz de modelação-visualização
+		glMatrixMode(GL_MODELVIEW);
+	Especifica que a matriz de modelação-visualização é a ""actual"
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+//--------------------------------------------------------------//
+	
+Função de Display:
+	
+	#1 - Limpar os buffers
+		glClearColor(); glClearDepth();
+	Definem os valores a serem usados na limpeza dos buffers de
+	cor.
+		
+		glClear(GLbitfield mask);
+	Limpa os buffers especificados em mask, de acordo com os
+	clearing values definidos.
+	GL_COLOR_BUFFER_BIT, GL_DEPTH_BUFFER_BIT, etc...
+	
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	void glClear(GL_COLOR_BUFFER_BIT);
+	
+	
+	#2 - Pontos linhas e polígonos
+	
+	Especificar a cor:
+		void glColor{34}{sifd}[v](TYPE colors);
+	
+	Descrever as primitivas:
+		void glBegin(GLenum mode);
+	Marca o início de uma lista de vértices, mode indica o tipo
+	de primitiva.
+	
+	GL_POINTS			-> Pontos Individuais;
+	GL_LINES 			-> Pares de pontos interpretados como um segmento
+						   de recta.
+	GL_LINE_STRIP		-> Segmentos de recta ligados.
+	GL_LINE_LOOP		-> Igual ao anterior mas o primeiro e último vértice
+					       ligam-se.
+	GL_TRIANGLES		-> 3 Vértices interpretado como um triângulo.
+	GL_TRIANGLE_STRIP	-> Faixa de triângulos ligados.
+	GL_TRIANGLE_FAN		-> Faixa de triangulos ligados pelo mesmo vértice.
+	GL_QUADS			-> Polígono de 4 lados.
+	GL_QUAD_STRIP		-> Faixa de Polígonos de 4 lados.
+	GL_POLYGON			-> Polígono convexo.
+	
+	
+	Chamadas válidas entre glBegin() e glEnd():
+		glVertex*();
+		glNormal*();
+		glColor*();
+		glIndex*();
+		glTexCoord*();
+		glMaterial*();
+	
+		void glEnd();
+	Marca o fim da lista de vértices.
+	
+	O OpenGL apenas desenha correctamente polígonos que sejam:
+		Simples: Arestas não se cruzam;
+		Planares: Todos os vértices estão no mesmo plano;
+		Convexos: Todos os pontos num segmento de recta entre quaisquer
+				  dois vértices no polígono pertencem ao polígono.
+		
+		
+	#3 - Forçar o processamento		
+		void glFlush();
+	Força todos os comandos a serem processados, diferentes implementações
+	do GL usam buffers de comandos em locais distintos, incluindo buffers de
+	rede e aceleradores gráficos.
+	Esta chamada "esvazia" estes buffers, fazendo com que os comandos sejam
+	processados pelo rendering engine.
+	
+	Deve ser invocada sempre que o desenho estiver terminado, especialmente
+	quando se fica à espera do input do utilizador que depende da imagem gerada.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

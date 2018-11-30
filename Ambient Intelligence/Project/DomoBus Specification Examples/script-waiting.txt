@@ -1,0 +1,17 @@
+! Fich.: script1.txt
+s 1 1 40
+w 1
+s 1 0 1
+w 1
+s 2 192 "ola"
+w 1
+s 2 0xc1 "123456"
+w 1
+! não sei se é fácil ler hexadecimal (0x qualquer coisa...)
+s 1 34 0
+! 34=32+2 -> define que 1,2 tem valor inválido (o 0 é ignorado)
+w 5   !(wait 5 segundos)
+s 1 2 10
+w 1
+p
+s 1 0 0

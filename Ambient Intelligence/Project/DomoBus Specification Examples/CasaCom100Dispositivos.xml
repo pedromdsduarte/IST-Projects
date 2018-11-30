@@ -1,0 +1,2049 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<DomoBusSystem ID="1" Name="Novo" Type="." Version="1.0" Date="2009">
+  <ConversionFormulaList>
+    <ConversionFormula ID="1" Name="Converte para dobro" UserToSystem="2*X" SystemToUser="X/2" DecimalPlaces="0" />
+    <ConversionFormula ID="2" Name="10*X+200" UserToSystem="10*X+200" SystemToUser="(X-200)/10" DecimalPlaces="1" />
+  </ConversionFormulaList>
+  <ConversionObjectList>
+    <ConversionObject ID="1" Name="Intensidade - lux" UserToSystemObj="1" SystemToUserObj="2" DecimalPlaces="2" />
+    <ConversionObject ID="2" Name="Intensidade - lux" UserToSystemObj="1" SystemToUserObj="2" DecimalPlaces="2" />
+  </ConversionObjectList>
+  <ScalarValueTypeList>
+    <ScalarValueType ID="1" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="100" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="2" Name="Potencia" NumBits="16" MinValue="0" MaxValue="800" Step="10">
+      <ValueConversion Type="FORMULA" Ref="2" />
+    </ScalarValueType>
+    <ScalarValueType ID="3" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="4" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="5" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="6" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="7" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="8" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="9" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="10" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="11" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="12" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="13" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="14" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="15" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="16" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="17" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="18" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="19" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="20" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="21" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="22" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="23" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="24" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="25" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="26" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="27" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="28" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="29" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="30" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="300" Step="1">
+      <ValueConversion Type="OBJ" Ref="2" />
+    </ScalarValueType>
+    <ScalarValueType ID="31" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="32" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="33" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="34" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="35" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="36" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="37" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="38" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="39" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="40" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="41" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="42" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="43" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="44" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="45" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="46" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="47" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="48" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="49" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="50" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+    <ScalarValueType ID="51" Name="Percentagem (0-100)" NumBits="8" MinValue="0" MaxValue="200" Step="1">
+      <ValueConversion Type="NONE" Ref="" />
+    </ScalarValueType>
+  </ScalarValueTypeList>
+  <EnumValueTypeList>
+    <EnumValueType ID="1" Name="On-Off">
+      <Enumerated Name="Off" Value="0" />
+      <Enumerated Name="On" Value="1" />
+    </EnumValueType>
+    <EnumValueType ID="2" Name="Comando Ar Condicionado">
+      <Enumerated Name="Desligado" Value="0" />
+      <Enumerated Name="Aquecer" Value="1" />
+      <Enumerated Name="Arrefecer" Value="2" />
+    </EnumValueType>
+    <EnumValueType ID="3" Name="Off-vermelho-verde">
+      <Enumerated Name="Off" Value="0" />
+      <Enumerated Name="Vermelho" Value="1" />
+      <Enumerated Name="Verde" Value="2" />
+    </EnumValueType>
+    <EnumValueType ID="4" Name="On-Off2">
+      <Enumerated Name="Off" Value="0" />
+      <Enumerated Name="On" Value="1" />
+    </EnumValueType>
+  </EnumValueTypeList>
+  <ArrayValueTypeList>
+    <ArrayValueType ID="1" Name="Nome Empresa" MaxLen="10">
+      <ValueConversion Type="NONE" Ref="" />
+    </ArrayValueType>
+    <ArrayValueType ID="2" Name="Float IEEE" MaxLen="8">
+      <ValueConversion Type="OBJ" Ref="1" />
+    </ArrayValueType>
+  </ArrayValueTypeList>
+  <AccessLevelList>
+    <AccessLevel Level="0" Name="Free Access" />
+	<AccessLevel Level="1" Name="Guest" />
+    <AccessLevel Level="2" Name="Common User - Child" />
+    <AccessLevel Level="3" Name="Common User - Parent" />
+    <AccessLevel Level="10" Name="Administrator" />
+  </AccessLevelList>
+  <UserList>
+    <User ID="1" Name="abcd" Password="efgh" AccessLevel="2" />
+    <User ID="2" Name="ijkl" Password="mnop" AccessLevel="10" />
+  </UserList>
+  <ServiceList>
+    <Service ID="1" Name="Aquecimento" />
+    <Service ID="2" Name="Iluminação" />
+    <Service ID="3" Name="Alarme" />
+    <Service ID="4" Name="Tomadas" />
+    <Service ID="5" Name="Irrigação" />
+  </ServiceList>
+  <DeviceClassList>
+    <DeviceClass ID="1" Name="Iluminação" />
+    <DeviceClass ID="2" Name="Aquecimento" />
+    <DeviceClass ID="3" Name="Segurança" />
+  </DeviceClassList>
+  <ConfigurationTypeList>
+    <ConfigurationType ID="1" Name="Config xx">
+      <MaxLimit MaxValue="10" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="10" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="2" Name="Config 2">
+      <MaxLimit MaxValue="100" MinValue="10" Units="graus" />
+      <MinLimit MaxValue="100" MinValue="10" Units="graus" />
+      <Variation MaxValue="100" MinValue="10" Units="graus" />
+      <NotifyRate MaxValue="100" MinValue="10" Units="segundos" />
+      <StateChange MaxValue="100" MinValue="10" Units="graus" />
+      <Condition MaxValue="3" />
+    </ConfigurationType>
+    <ConfigurationType ID="3" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="4" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="5" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="6" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="7" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="8" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="9" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="10" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="11" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="12" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="13" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="14" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="15" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="16" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="17" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="18" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="19" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="20" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="21" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="22" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="23" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="24" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="25" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="26" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="27" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="28" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="29" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="30" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="31" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="32" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="33" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="34" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="35" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="36" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="37" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="38" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="39" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="40" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="41" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="42" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="43" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="44" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="45" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="46" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="47" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="48" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="49" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="50" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="51" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="52" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="53" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="54" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="55" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="56" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="57" Name="Config butoes">
+      <NotifyRate MaxValue="10" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="0" Units="segundos" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="58" Name="Config lampadas">
+      <MaxLimit MaxValue="10" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="10" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="segundos" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="59" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="60" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="61" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="62" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="63" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="64" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="65" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="66" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="67" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="68" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="69" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="70" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="71" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="72" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="73" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="74" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="75" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="76" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="77" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="78" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="79" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="80" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="81" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="82" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="83" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="84" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="85" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="86" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="87" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="88" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="89" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="90" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="91" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="92" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="93" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="94" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="95" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="96" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="97" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="98" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="99" Name="Config sensor temp">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="50" MinValue="-50" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+    <ConfigurationType ID="100" Name="Config sensor humidade">
+      <MaxLimit MaxValue="100" MinValue="1" Units="graus" />
+      <MinLimit MaxValue="10" MinValue="1" Units="graus" />
+      <Variation MaxValue="10" MinValue="1" Units="graus" />
+      <NotifyRate MaxValue="60" MinValue="1" Units="segundos" />
+      <StateChange MaxValue="10" MinValue="1" Units="graus" />
+      <Condition MaxValue="2" />
+    </ConfigurationType>
+  </ConfigurationTypeList>
+  <DeviceTypeList>
+    <DeviceType ID="1" Name="Lâmpada-Regulada" RefDeviceClass="1" Description="Lampada Regulada">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="On-Off" AccessMode="RW" ValueType="ENUM" RefValueType="1" RefConfigType="1" />
+        <PropertyType ID="2" Name="Intensidade" AccessMode="RW" ValueType="SCALAR" RefValueType="1" RefConfigType="1" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="2" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="1" RefConfigType="2" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="3" Name="Push-Button-estado" RefDeviceClass="1" Description="Push-Button com estado">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="On-Off" AccessMode="RO" ValueType="ENUM" RefValueType="1" RefConfigType="1" />
+        <PropertyType ID="2" Name="Estado" AccessMode="RW" ValueType="ENUM" RefValueType="1" RefConfigType="1" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="4" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="1" RefConfigType="1" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="5" Name="LED" RefDeviceClass="1" Description="LED">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Cor-Led" AccessMode="RW" ValueType="ENUM" RefValueType="3" RefConfigType="1" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="6" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="3" RefConfigType="3" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="7" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="3" RefConfigType="4" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="8" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="4" RefConfigType="5" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="9" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="4" RefConfigType="6" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="10" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="5" RefConfigType="7" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="11" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="5" RefConfigType="8" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="12" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="6" RefConfigType="9" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="13" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="6" RefConfigType="10" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="14" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="7" RefConfigType="11" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="15" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="7" RefConfigType="12" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="16" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="8" RefConfigType="13" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="17" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="8" RefConfigType="14" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="18" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="9" RefConfigType="15" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="19" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="9" RefConfigType="16" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="20" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="10" RefConfigType="17" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="21" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="10" RefConfigType="18" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="22" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="11" RefConfigType="19" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="23" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="11" RefConfigType="20" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="24" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="12" RefConfigType="21" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="25" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="12" RefConfigType="22" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="26" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="13" RefConfigType="23" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="27" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="13" RefConfigType="24" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="28" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="14" RefConfigType="25" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="29" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="14" RefConfigType="26" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="30" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="15" RefConfigType="27" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="31" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="15" RefConfigType="28" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="32" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="16" RefConfigType="29" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="33" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="16" RefConfigType="30" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="34" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="17" RefConfigType="31" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="35" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="17" RefConfigType="32" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="36" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="18" RefConfigType="33" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="37" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="18" RefConfigType="34" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="38" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="19" RefConfigType="35" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="39" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="19" RefConfigType="36" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="40" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="20" RefConfigType="37" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="41" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="20" RefConfigType="38" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="42" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="21" RefConfigType="39" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="43" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="21" RefConfigType="40" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="44" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="22" RefConfigType="41" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="45" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="22" RefConfigType="42" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="46" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="23" RefConfigType="43" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="47" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="23" RefConfigType="44" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="48" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="24" RefConfigType="45" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="49" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="24" RefConfigType="46" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="50" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="25" RefConfigType="47" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="51" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="25" RefConfigType="48" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="52" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="26" RefConfigType="49" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="53" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="26" RefConfigType="50" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="54" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="27" RefConfigType="51" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="55" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="27" RefConfigType="52" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="56" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="28" RefConfigType="53" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="57" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="28" RefConfigType="54" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="58" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="29" RefConfigType="55" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="59" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="29" RefConfigType="56" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="60" Name="Lâmpada-ReguladaUSAR" RefDeviceClass="1" Description="Lampada Regulada">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="On-Off" AccessMode="RW" ValueType="ENUM" RefValueType="4" RefConfigType="57" />
+        <PropertyType ID="2" Name="Intensidade" AccessMode="RW" ValueType="SCALAR" RefValueType="30" RefConfigType="58" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="61" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="31" RefConfigType="59" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="62" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="31" RefConfigType="60" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="63" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="32" RefConfigType="61" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="64" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="32" RefConfigType="62" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="65" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="33" RefConfigType="63" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="66" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="33" RefConfigType="64" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="67" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="34" RefConfigType="65" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="68" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="34" RefConfigType="66" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="69" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="35" RefConfigType="67" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="70" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="35" RefConfigType="68" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="71" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="36" RefConfigType="69" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="72" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="36" RefConfigType="70" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="73" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="37" RefConfigType="71" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="74" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="37" RefConfigType="72" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="75" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="38" RefConfigType="73" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="76" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="38" RefConfigType="74" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="77" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="39" RefConfigType="75" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="78" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="39" RefConfigType="76" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="79" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="40" RefConfigType="77" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="80" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="40" RefConfigType="78" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="81" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="41" RefConfigType="79" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="82" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="41" RefConfigType="80" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="83" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="42" RefConfigType="81" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="84" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="42" RefConfigType="82" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="85" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="43" RefConfigType="83" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="86" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="43" RefConfigType="84" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="87" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="44" RefConfigType="85" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="88" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="44" RefConfigType="86" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="89" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="45" RefConfigType="87" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="90" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="45" RefConfigType="88" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="91" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="46" RefConfigType="89" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="92" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="46" RefConfigType="90" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="93" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="47" RefConfigType="91" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="94" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="47" RefConfigType="92" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="95" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="48" RefConfigType="93" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="96" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="48" RefConfigType="94" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="97" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="49" RefConfigType="95" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="98" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="49" RefConfigType="96" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="99" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="50" RefConfigType="97" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="100" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="50" RefConfigType="98" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="101" Name="Sensor-Temperatura" RefDeviceClass="2" Description="Sensor de Temperatura">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Temperatura" AccessMode="RO" ValueType="SCALAR" RefValueType="51" RefConfigType="99" />
+      </PropertyTypeList>
+    </DeviceType>
+    <DeviceType ID="102" Name="Sensor-humidade" RefDeviceClass="2" Description="Sensor de Humidade">
+      <PropertyTypeList>
+        <PropertyType ID="1" Name="Humidade" AccessMode="RO" ValueType="SCALAR" RefValueType="51" RefConfigType="100" />
+      </PropertyTypeList>
+    </DeviceType>
+  </DeviceTypeList>
+  <AvaibleModuleDeviceList />
+  <HouseList>
+    <House ID="1" Name="Vivenda Silva" Address="xxxxx" Phone="xxxx">
+      <FloorList>
+        <Floor ID="1" Name="Cave" HeightOrder="-1">
+          <DivisionList>
+            <Division ID="1" Name="Cave" AccessLevel="1" />
+          </DivisionList>
+        </Floor>
+        <Floor ID="2" Name="R/C" HeightOrder="0">
+          <DivisionList>
+            <Division ID="2" Name="Cozinha" AccessLevel="3" />
+            <Division ID="3" Name="Sala" AccessLevel="2" />
+            <Division ID="4" Name="Hall" AccessLevel="2" />
+          </DivisionList>
+        </Floor>
+        <Floor ID="3" Name="Sótão" HeightOrder="1">
+          <DivisionList>
+            <Division ID="5" Name="Sótão" AccessLevel="2" />
+          </DivisionList>
+        </Floor>
+      </FloorList>
+    </House>
+    <House ID="2" Name="Vivenda IST" Address="xxxxx" Phone="xxxx">
+      <FloorList>
+        <Floor ID="1" Name="Cave" HeightOrder="-1">
+          <DivisionList>
+            <Division ID="6" Name="Cave" AccessLevel="1" />
+            <Division ID="7" Name="Cave2" AccessLevel="1" />
+          </DivisionList>
+        </Floor>
+        <Floor ID="2" Name="R/C" HeightOrder="0">
+          <DivisionList>
+            <Division ID="8" Name="Cozinha" AccessLevel="3" />
+            <Division ID="9" Name="Sala" AccessLevel="2" />
+            <Division ID="10" Name="Hall" AccessLevel="2" />
+          </DivisionList>
+        </Floor>
+        <Floor ID="3" Name="Piso1" HeightOrder="1">
+          <DivisionList>
+            <Division ID="11" Name="Quarto" AccessLevel="3" />
+            <Division ID="12" Name="WC" AccessLevel="2" />
+            <Division ID="13" Name="Quarto" AccessLevel="2" />
+          </DivisionList>
+        </Floor>
+        <Floor ID="4" Name="Sótão" HeightOrder="2">
+          <DivisionList>
+            <Division ID="14" Name="Sótão" AccessLevel="2" />
+          </DivisionList>
+        </Floor>
+      </FloorList>
+    </House>
+  </HouseList>
+  <DeviceList>
+    <Device ID="1" RefDeviceType="1" Name="Candeeiro-Mesa" Address="2010" SupervisiorAddress="10" RefHouse="1" RefDivision="2" MonAccessLevel="3" ControlAccessLevel="10" UserBlockedMon="-" UserBlockedControl="2">
+      <DeviceServiceList>
+        <DeviceService RefService="2" />
+        <DeviceService RefService="4" />
+      </DeviceServiceList>
+      <ConfigurationList>
+        <MaxLimitConfig RefProperty="1" Value="10" />
+        <MinLimitConfig RefProperty="1" Value="1" />
+        <VariationConfig RefProperty="1" Value="10" />
+        <NotifyRateConfig RefProperty="1" Value="1" />
+        <StateChangeConfig RefProperty="1" Value="10" />
+        <MaxLimitConfig RefProperty="2" Value="10" />
+        <MinLimitConfig RefProperty="2" Value="1" />
+        <VariationConfig RefProperty="2" Value="10" />
+        <NotifyRateConfig RefProperty="2" Value="1" />
+        <StateChangeConfig RefProperty="2" Value="10" />
+        <ConditionConfig RefProperty="1" Operator="EQ" Value="10" />
+        <ConditionConfig RefProperty="1" Operator="NE" Value="10" />
+        <ConditionConfig RefProperty="2" Operator="EQ" Value="10" />
+      </ConfigurationList>
+    </Device>
+    <Device ID="2" RefDeviceType="1" Name="Luz-Hall" Address="1011" SupervisiorAddress="10" RefHouse="1" RefDivision="2" MonAccessLevel="3" ControlAccessLevel="10" UserBlockedMon="-" UserBlockedControl="2">
+      <DeviceServiceList>
+        <DeviceService RefService="2" />
+      </DeviceServiceList>
+      <ConfigurationList>
+        <MaxLimitConfig RefProperty="1" Value="10" />
+        <MinLimitConfig RefProperty="1" Value="1" />
+        <VariationConfig RefProperty="1" Value="10" />
+        <NotifyRateConfig RefProperty="1" Value="1" />
+        <StateChangeConfig RefProperty="1" Value="10" />
+        <ConditionConfig RefProperty="1" Operator="EQ" Value="10" />
+      </ConfigurationList>
+    </Device>
+    <Device ID="3" RefDeviceType="1" Name="lampada" Address="1012" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="4" RefDeviceType="6" Name="sensor temp" Address="1013" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="5" RefDeviceType="7" Name="sensor humidade" Address="1014" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="6" RefDeviceType="8" Name="sensor temp" Address="1015" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="7" RefDeviceType="9" Name="sensor humiddsadasdaade" Address="1016" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="8" RefDeviceType="10" Name="sensor temp" Address="1017" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="9" RefDeviceType="11" Name="sensor humidade" Address="1018" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="10" RefDeviceType="12" Name="sensor temp" Address="1019" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="11" RefDeviceType="13" Name="sensor humidade" Address="101a" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="12" RefDeviceType="14" Name="sensor temp" Address="101b" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="13" RefDeviceType="15" Name="sensor humidade" Address="101c" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="14" RefDeviceType="16" Name="sensor temp" Address="101d" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="15" RefDeviceType="17" Name="sensor humidade" Address="101e" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="16" RefDeviceType="18" Name="sensor temp" Address="101f" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="17" RefDeviceType="19" Name="sensor humidade" Address="1020" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="18" RefDeviceType="20" Name="sensor temp" Address="1021" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="19" RefDeviceType="21" Name="sensor humidade" Address="1022" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="20" RefDeviceType="22" Name="sensor temp" Address="1023" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="21" RefDeviceType="23" Name="sensor humidade" Address="1024" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="22" RefDeviceType="24" Name="sensor temp" Address="1025" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="23" RefDeviceType="25" Name="sensor humidade" Address="1026" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="10" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="24" RefDeviceType="26" Name="sensor temp" Address="1027" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="25" RefDeviceType="27" Name="sensor humidade" Address="1028" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="26" RefDeviceType="28" Name="sensor temp" Address="1029" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="27" RefDeviceType="29" Name="sensor humidade" Address="102a" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="2" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="28" RefDeviceType="30" Name="sensor temp" Address="102b" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="29" RefDeviceType="31" Name="sensor humidade" Address="102c" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="30" RefDeviceType="32" Name="sensor temp" Address="102d" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="31" RefDeviceType="33" Name="sensor humidade" Address="102e" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="32" RefDeviceType="34" Name="sensor temp" Address="102f" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="33" RefDeviceType="35" Name="sensor humidade" Address="1030" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="34" RefDeviceType="36" Name="sensor temp" Address="1031" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="35" RefDeviceType="37" Name="sensor humidade" Address="1032" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="36" RefDeviceType="38" Name="sensor temp" Address="1033" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="37" RefDeviceType="39" Name="sensor humidade" Address="1034" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="38" RefDeviceType="40" Name="sensor temp" Address="1035" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="39" RefDeviceType="41" Name="sensor humidade" Address="1036" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="40" RefDeviceType="42" Name="sensor temp" Address="1037" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="41" RefDeviceType="43" Name="sensor humidade" Address="1038" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="42" RefDeviceType="44" Name="sensor temp" Address="1039" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="43" RefDeviceType="45" Name="sensor humidade" Address="103a" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="44" RefDeviceType="46" Name="sensor temp" Address="103b" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="45" RefDeviceType="47" Name="sensor humidade" Address="103c" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="46" RefDeviceType="48" Name="sensor temp" Address="103d" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="47" RefDeviceType="49" Name="sensor humidade" Address="103e" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="48" RefDeviceType="50" Name="sensor temp" Address="103f" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="49" RefDeviceType="51" Name="sensor humidade" Address="1040" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="50" RefDeviceType="52" Name="sensor temp" Address="1041" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="51" RefDeviceType="53" Name="sensor humidade" Address="1042" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="52" RefDeviceType="54" Name="sensor temp" Address="1043" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="53" RefDeviceType="55" Name="sensor humidade" Address="1044" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="54" RefDeviceType="56" Name="sensor temp" Address="1045" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="55" RefDeviceType="57" Name="sensor humidade" Address="1046" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="56" RefDeviceType="58" Name="sensor temp" Address="1047" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="57" RefDeviceType="59" Name="sensor humidade" Address="1048" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="58" RefDeviceType="60" Name="lampada1" Address="1049" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="59" RefDeviceType="60" Name="lampada2" Address="104a" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="60" RefDeviceType="61" Name="sensor temp" Address="104b" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="61" RefDeviceType="62" Name="sensor humidade" Address="104c" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="62" RefDeviceType="63" Name="sensor temp" Address="104d" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="63" RefDeviceType="64" Name="sensor humidade" Address="104e" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="64" RefDeviceType="65" Name="sensor temp" Address="104f" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="65" RefDeviceType="66" Name="sensor humidade" Address="1050" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="66" RefDeviceType="67" Name="sensor temp" Address="1051" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="67" RefDeviceType="68" Name="sensor humidade" Address="1052" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="68" RefDeviceType="69" Name="sensor temp" Address="1053" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="69" RefDeviceType="70" Name="sensor humidade" Address="1054" SupervisiorAddress="#10" RefHouse="1" RefDivision="2" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="70" RefDeviceType="71" Name="sensor temp" Address="1055" SupervisiorAddress="#10" RefHouse="2" RefDivision="13" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="71" RefDeviceType="72" Name="sensor humidade" Address="1056" SupervisiorAddress="#10" RefHouse="2" RefDivision="10" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="72" RefDeviceType="73" Name="sensor temp" Address="1057" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="73" RefDeviceType="74" Name="sensor humidade" Address="1058" SupervisiorAddress="#10" RefHouse="2" RefDivision="10" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="74" RefDeviceType="75" Name="sensor temp" Address="1059" SupervisiorAddress="#10" RefHouse="2" RefDivision="13" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="75" RefDeviceType="76" Name="sensor humidade" Address="105a" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="76" RefDeviceType="77" Name="sensor temp" Address="105b" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="77" RefDeviceType="78" Name="sensor humidade" Address="105c" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="78" RefDeviceType="79" Name="sensor temp" Address="105d" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="79" RefDeviceType="80" Name="sensor humidade" Address="105e" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="80" RefDeviceType="81" Name="sensor temp" Address="105f" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="81" RefDeviceType="82" Name="sensor humidade" Address="1060" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="82" RefDeviceType="83" Name="sensor temp" Address="1061" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="83" RefDeviceType="84" Name="sensor humidade" Address="1062" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="84" RefDeviceType="85" Name="sensor temp" Address="1063" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="85" RefDeviceType="86" Name="sensor humidade" Address="1064" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="86" RefDeviceType="87" Name="sensor temp" Address="1065" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="87" RefDeviceType="88" Name="sensor humidade" Address="1066" SupervisiorAddress="#10" RefHouse="2" RefDivision="10" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="88" RefDeviceType="89" Name="sensor temp" Address="1067" SupervisiorAddress="#10" RefHouse="2" RefDivision="8" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="89" RefDeviceType="90" Name="sensor humidade" Address="1068" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="90" RefDeviceType="91" Name="sensor temp" Address="1069" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="91" RefDeviceType="92" Name="sensor humidade" Address="106a" SupervisiorAddress="#10" RefHouse="1" RefDivision="5" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="92" RefDeviceType="93" Name="sensor temp" Address="106b" SupervisiorAddress="#10" RefHouse="2" RefDivision="6" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="93" RefDeviceType="94" Name="sensor humidade" Address="106c" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="94" RefDeviceType="95" Name="sensor temp" Address="106d" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="95" RefDeviceType="96" Name="sensor humidade" Address="106e" SupervisiorAddress="#10" RefHouse="2" RefDivision="8" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="96" RefDeviceType="97" Name="sensor temp" Address="106f" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="97" RefDeviceType="98" Name="sensor humidade" Address="1070" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="98" RefDeviceType="99" Name="sensor temp" Address="1071" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="99" RefDeviceType="100" Name="sensor humidade" Address="1072" SupervisiorAddress="#10" RefHouse="1" RefDivision="1" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="100" RefDeviceType="101" Name="sensor temp" Address="1073" SupervisiorAddress="#10" RefHouse="2" RefDivision="8" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+    <Device ID="101" RefDeviceType="102" Name="sensor humidade" Address="1074" SupervisiorAddress="#10" RefHouse="2" RefDivision="7" MonAccessLevel="0" ControlAccessLevel="0" UserBlockedMon="1" UserBlockedControl="1">
+      <DeviceServiceList />
+      <ConfigurationList />
+    </Device>
+  </DeviceList>
+  <MacroList>
+    <Macro ID="1" Name="Ver TV">
+      <ActionList>
+        <Action ID="1" Name="Fecha Estore" RefDevice="1" RefProperty="1" Value="1" />
+        <Action ID="2" Name="Candeeiro 50%" RefDevice="1" RefProperty="2" Value="1" />
+        <Action ID="3" Name="LampTecto 40%" RefDevice="1" RefProperty="2" Value="1" />
+      </ActionList>
+    </Macro>
+  </MacroList>
+  <ScenarioList>
+    <Scenario ID="1" Name="ligar lampada quarto">
+      <ActionList>
+        <Action ID="1" Name="aceder a luz" RefDevice="1" RefProperty="1" Value="1" />
+      </ActionList>
+      <DesactivationList>
+        <Action ID="1" Name="apagar a luz" RefDevice="1" RefProperty="1" Value="1" />
+      </DesactivationList>
+      <Condition>
+        <Logic Type="AND">
+          <ConditionExpression RefDevice="1" RefProperty="2" Operator="LT" Value="20" Description="Se está escuro" />
+          <ConditionExpression RefDevice="2" RefProperty="1" Operator="EQ" Value="1" Description="Se detector de presença activo" />
+          <Logic Type="AND">
+            <ConditionExpression RefDevice="1" RefProperty="1" Operator="LT" Value="20" Description="Se está escuro1" />
+            <ConditionExpression RefDevice="2" RefProperty="1" Operator="EQ" Value="1" Description="Se detector de presença activo1" />
+          </Logic>
+          <Logic Type="OR">
+            <ConditionExpression RefDevice="1" RefProperty="1" Operator="LT" Value="20" Description="Se está escuro2" />
+            <ConditionExpression RefDevice="2" RefProperty="1" Operator="EQ" Value="1" Description="Se detector de presença activo2" />
+          </Logic>
+        </Logic>
+      </Condition>
+    </Scenario>
+  </ScenarioList>
+</DomoBusSystem>

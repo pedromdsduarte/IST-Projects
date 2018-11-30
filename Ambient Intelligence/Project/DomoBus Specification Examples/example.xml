@@ -1,0 +1,164 @@
+
+<DomoBusSystem ID="1" Name="Example System" Version="01" Date="01/03/2016">
+
+
+<!-- Value types -->
+  <!-- NumBits: 8 or 16 -->
+
+  <ScalarValueTypeList>
+    <ScalarValueType ID="1" Name="light intensity" NumBits="8" Units="%" MinValue="0" MaxValue="100" Step="5"/>
+    <ScalarValueType ID="2" Name="heat duration" NumBits="8" Units="Sec" MinValue="10" MaxValue="120" Step="10"/>
+  </ScalarValueTypeList>
+
+
+  <EnumValueTypeList>
+    <EnumValueType ID="1" Name="on/off state">
+      <Enumerated Name="Off" Value="0" />
+      <Enumerated Name="On" Value="1" />
+    </EnumValueType>
+    <EnumValueType ID="2" Name="presence">
+      <Enumerated Name="Inactive" Value="0" />
+      <Enumerated Name="Active" Value="1" />
+    </EnumValueType>
+    <EnumValueType ID="3" Name="state">
+      <Enumerated Name="Off" Value="0" />
+      <Enumerated Name="Toast" Value="1" />
+      <Enumerated Name="Keep warm" Value="2" />
+    </EnumValueType>
+  </EnumValueTypeList>
+    
+	
+  <ArrayValueTypeList>
+    <ArrayValueType ID="1" Name="sound volume" MaxLen="3">
+      <ValueConversion Type="1" Ref="min" />
+      <ValueConversion Type="2" Ref="med" />
+      <ValueConversion Type="3" Ref="max" />
+    </ArrayValueType>
+  </ArrayValueTypeList>
+
+
+<!-- Device Types -->
+
+  <DeviceTypeList>
+    <DeviceType ID="1" Name="Dimmable light" Description="">
+      <PropertyList>
+          <!-- Value types: "SCALAR", "ENUM" or "ARRAY" -->
+        <Property ID="1" Name="on/off state" AccessMode="RW" ValueType="ENUM" RefValueType="1" />
+        <Property ID="2" Name="light intensity" AccessMode="RW" ValueType="SCALAR" RefValueType="1" />
+      </PropertyList>
+    </DeviceType>
+    <DeviceType ID="2" Name="Movement detector" Description="">
+      <PropertyList>
+          <!-- Value types: "SCALAR", "ENUM" or "ARRAY" -->
+        <Property ID="1" Name="presence" AccessMode="RO" ValueType="ENUM" RefValueType="2" />
+      </PropertyList>
+    </DeviceType>
+    <DeviceType ID="3" Name="Toaster" Description="">
+          <!-- Value types: "SCALAR", "ENUM" or "ARRAY" -->
+      <PropertyList>
+        <Property ID="1" Name="state" AccessMode="RW" ValueType="ENUM" RefValueType="3" />
+        <Property ID="2" Name="heat duration" AccessMode="RW" ValueType="SCALAR" RefValueType="2" />
+      </PropertyList>
+    </DeviceType>
+   </DeviceTypeList>
+
+
+<!-- Access levels -->
+
+  <AccessLevelList>
+    <AccessLevel Level="8" Name="Admin" />
+    <AccessLevel Level="5" Name="Owner" />
+    <AccessLevel Level="1" Name="Guest" />
+  </AccessLevelList>
+    
+
+<!-- Users -->
+
+  <UserList>
+    <User ID="1" Name="Mr. Silva" Password="1234" AccessLevel="8" />
+    <User ID="2" Name="Mrs. Silva" Password="4321" AccessLevel="5" />
+  </UserList>
+
+
+<!-- House structure -->
+
+  <House ID="123" Name="Vivenda Silva" Address="-">
+    <FloorList>
+      <Floor ID="1" Name="Entrance" HeightOrder="0" />
+      <Floor ID="2" Name="Floor 1" HeightOrder="1" />
+      <Floor ID="3" Name="Attic" HeightOrder="2" />
+      <Floor ID="4" Name="Basement" HeightOrder="-1" />
+    </FloorList>
+    <DivisionList>
+      <Division ID="1" Name="Kitchen" RefFloor="1" AccessLevel="5" />
+      <Division ID="2" Name="Living Room" RefFloor="1" AccessLevel="5" />
+      <Division ID="3" Name="Small WC" RefFloor="1" AccessLevel="5" />
+      <Division ID="4" Name="Bedroom" RefFloor="2" AccessLevel="5" />
+      <Division ID="5" Name="Suite" RefFloor="2" AccessLevel="5" />
+      <Division ID="6" Name="WC" RefFloor="2" AccessLevel="5" />
+      <Division ID="7" Name="Store-room" RefFloor="3" AccessLevel="5" />
+      <Division ID="8" Name="Gym" RefFloor="4" AccessLevel="5" />
+    </DivisionList>
+  </House>
+
+
+<!-- Services -->
+
+  <ServiceList>
+    <Service ID="1" Name="Lighting" />
+    <Service ID="2" Name="Entertainment" />
+    <Service ID="3" Name="Security" />
+  </ServiceList>
+
+
+<!-- Devices -->
+
+  <DeviceList>
+    <Device ID="1" RefDeviceType="1" Name="Kitchen lamp" Address="100" RefDivision="1" />
+    <Device ID="2" RefDeviceType="1" Name="Bedroom lamp" Address="101" RefDivision="4" />
+    <Device ID="3" RefDeviceType="2" Name="People detector" Address="200" RefDivision="2" />
+    <Device ID="4" RefDeviceType="3" Name="Kitchen toaster" Address="300" RefDivision="1" />
+    <Device ID="5" RefDeviceType="3" Name="Dining toaster" Address="301" RefDivision="2" />
+    <Device ID="6" RefDeviceType="3" Name="Ceiling lamp" Address="302" RefDivision="2">
+      <DeviceServiceList>
+        <DeviceService RefService="1" />
+        <DeviceService RefService="3" />
+      </DeviceServiceList>
+    </Device>
+  </DeviceList>
+
+<!-- Scenarios -->
+
+  <ScenarioList>
+    <Scenario ID="1" Name="Arriving home">
+      <ActionList>
+        <Action ID="1" RefDevice="1" RefProperty="1" Value="1" />
+        <Action ID="2" RefDevice="1" RefProperty="2" Value="75" />
+        <Action ID="3" RefDevice="4" RefProperty="1" Value="1" />
+      </ActionList>
+    </Scenario>
+    <Scenario ID="2" Name="Going to sleep">
+      <ActionList>
+        <Action ID="1" RefDevice="1" RefProperty="1" Value="0" />
+        <Action ID="2" RefDevice="2" RefProperty="1" Value="0" />
+        <Action ID="3" RefDevice="4" RefProperty="1" Value="0" />
+        <Action ID="4" RefDevice="5" RefProperty="1" Value="0" />
+      </ActionList>
+    </Scenario>
+  </ScenarioList>
+
+
+<!-- Favorites (for each user) -->
+
+  <Favorites>
+    <FavoriteList RefUser="1">
+      <FavoriteDevice RefDevice="2" />
+      <FavoriteDivision RefDivision="1" />
+    </FavoriteList>
+    <FavoriteList RefUser="2">
+      <FavoriteDevice RefDevice="1" />
+    </FavoriteList>
+  </Favorites>
+
+
+</DomoBusSystem>

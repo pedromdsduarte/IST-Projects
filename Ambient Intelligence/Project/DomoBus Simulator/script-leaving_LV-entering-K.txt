@@ -1,0 +1,30 @@
+w 2			
+s 1100 1 0		!Leave livingroom, movsensor goes off
+w 6
+s 800 1 0		!Turn off Livingroom TV
+w 7
+
+s 700 1 1		!Enter kitchen, movsensor on
+w 7
+s 100 1 1		!Turn on lights & luminosity		
+s 100 130 70
+w 1
+s 200 1 1
+s 200 130 70
+w 6
+s 500 1 2		!Close blinds
+
+w 5
+
+s 600 1 1		!Turn on Kitchen TV
+s 600 130 40	!Volume
+s 600 131 3		!Channel
+
+w 7
+
+s 100 130 40	!Dim the lights
+s 200 130 40
+
+
+
+

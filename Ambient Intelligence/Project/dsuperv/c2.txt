@@ -1,0 +1,37 @@
+!
+! Config file for Application 2
+!
+!
+APP_ADDR     2	DomoBus Application Address
+SOCK_PORT 8002	Port used by this application
+!
+MSG_POOL_SIZE   5
+POOL_TIMEOUT  1500 ! milliseconds
+MSG_TIMEOUT   10   ! 10*0.1s = 1s
+NUM_RETRANS    1
+!
+!
+! Address mappings
+!
+! ALIAS IP 192.168.0.8   T
+ ALIAS IP 194.210.231.147  Sam
+!
+ALIAS IP2 194.210.231.147
+!
+! ADDR_MAP  1  $IP2 : 58000
+! ADDR_MAP  1  $IP : 995
+! ADDR_MAP  1  192.168.0.1 : 8000
+ADDR_MAP  1  $IP : 8001
+!
+ADDR_MAP  2  $IP : 8002
+! ADDR_MAP  715  $IP : 8002
+!
+! ADDR_MAP  3  $IP : 8003
+ADDR_MAP  3  $IP2 : 8003
+ADDR_MAP  4  $IP : 8004
+!
+!
+!
+! PACKET_POOL   20
+! D_ARRAY_POOL  20
+!

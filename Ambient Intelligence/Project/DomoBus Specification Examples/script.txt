@@ -1,0 +1,22 @@
+s 100 130 70	!Kitchen Cand (scalar = 128 + prop_number)
+s 100 1 1
+
+w 2
+
+s 200 0xc3 "KitchLamp"	!Kitchen Lamp (array = 192 + prop_number)
+
+w 2
+
+s 400 130 21				!Kitchen Heater
+s 400 131 10
+s 400 1 2
+
+w 2   
+
+s 600 1 1					!Kitchen TV
+s 600 130 20
+
+p
+s 800 33 0					!Livingroom TV
+
+! 34=32+2 -> define que 1,2 tem valor inválido (o 0 é ignorado)

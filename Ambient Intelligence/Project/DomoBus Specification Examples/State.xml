@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Components>
+	<DeviceStateList>
+		<DeviceState InvalidValue="False" RefDevice="1" RefProperty="1" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="1" RefProperty="2" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="2" RefProperty="1" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="2" RefProperty="2" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="3" RefProperty="1" Value="2"/>
+		<DeviceState InvalidValue="False" RefDevice="3" RefProperty="2" Value="40"/>
+		<DeviceState InvalidValue="False" RefDevice="3" RefProperty="3" Value="20"/>
+		<DeviceState InvalidValue="False" RefDevice="4" RefProperty="1" Value="1"/>
+		<DeviceState InvalidValue="False" RefDevice="4" RefProperty="2" Value="22"/>
+		<DeviceState InvalidValue="False" RefDevice="4" RefProperty="3" Value="50"/>
+		<DeviceState InvalidValue="False" RefDevice="5" RefProperty="1" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="5" RefProperty="2" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="6" RefProperty="1" Value="1"/>
+		<DeviceState InvalidValue="False" RefDevice="6" RefProperty="2" Value="60"/>
+		<DeviceState InvalidValue="False" RefDevice="6" RefProperty="3" Value="80"/>
+		<DeviceState InvalidValue="False" RefDevice="6" RefProperty="4" Value="11"/>
+		<DeviceState InvalidValue="False" RefDevice="7" RefProperty="1" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="8" RefProperty="1" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="8" RefProperty="2" Value="70"/>
+		<DeviceState InvalidValue="False" RefDevice="8" RefProperty="3" Value="60"/>
+		<DeviceState InvalidValue="False" RefDevice="8" RefProperty="4" Value="15"/>
+		<DeviceState InvalidValue="False" RefDevice="9" RefProperty="1" Value="2"/>
+		<DeviceState InvalidValue="False" RefDevice="9" RefProperty="2" Value="90"/>
+		<DeviceState InvalidValue="False" RefDevice="10" RefProperty="1" Value="25"/>
+		<DeviceState InvalidValue="False" RefDevice="11" RefProperty="1" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="12" RefProperty="1" Value="1"/>
+		<DeviceState InvalidValue="False" RefDevice="12" RefProperty="2" Value="0000"/>
+		<DeviceState InvalidValue="False" RefDevice="13" RefProperty="1" Value="1"/>
+		<DeviceState InvalidValue="False" RefDevice="13" RefProperty="2" Value="25"/>
+		<DeviceState InvalidValue="False" RefDevice="13" RefProperty="3" Value="90"/>
+		<DeviceState InvalidValue="False" RefDevice="13" RefProperty="4" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="14" RefProperty="1" Value="1"/>
+		<DeviceState InvalidValue="False" RefDevice="14" RefProperty="2" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="15" RefProperty="1" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="16" RefProperty="1" Value="25"/>
+		<DeviceState InvalidValue="False" RefDevice="17" RefProperty="1" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="18" RefProperty="1" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="18" RefProperty="2" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="19" RefProperty="1" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="19" RefProperty="2" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="20" RefProperty="1" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="20" RefProperty="2" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="21" RefProperty="1" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="21" RefProperty="2" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="22" RefProperty="1" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="23" RefProperty="1" Value="0"/>
+		<DeviceState InvalidValue="False" RefDevice="24" RefProperty="1" Value="0"/>
+	</DeviceStateList>
+</Components>

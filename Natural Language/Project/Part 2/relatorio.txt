@@ -1,0 +1,112 @@
+Grupo 23
+Pedro Duarte - 78328
+Gonçalo Fialho - 79112
+
+-------------------------------------
+
+Introdução:
+
+O método de atribuir autoria a um texto anónimo é bastante utilizado no processamento
+da lingua natural. Este método também denominado de "Stylometry" não é só utilizado para
+NPL mas também para a identificação de artes como a música, pinturas.
+Uma das suas aplicações consiste em identificar se o autor de um
+documento utilizou ideias ou conceitos de outros autores de forma a identificar se o
+texto produzido foi de alguma forma copiado de outro autor.
+
+No caso deste projecto a ideia era identificar o autor de ficheiros de teste previamente
+fornecidos.
+Por essa razão é necessário ter um corpus de treino para que o programa posteriormente possa
+decidir qual o autor mais provável a atribuir determinado ficheiro de teste.
+
+***
+
+Programas Necessários:
+
+- SRILM Toolkit
+	>ngram
+	>ngram-count
+- Python3.5 +
+	Libraries adicionais a instalar (Python3):
+	>nltk
+	>sklearn
+	>pandas
+	>prettytable
+	>numpy
+- cat, sed, uniq, sort
+
+Se existir alguma library que não estiver instalada executar o comando:
+	> pip3 install [library]
+
+***
+
+Scripts
+
+- run.sh
+	O ficheiro run.sh executa o programa como um todo, dando o resultado de cada método na linha
+	de comandos.
+- clean.sh
+	Dado que o ficheiro run.sh processa grandes quantidades de texto é necessário que estas sejam
+	guardadas a fim de serem processadas mais à frente no programa, este script remove o lixo criado
+	pelo programa principal.
+
+***
+
+Normalização
+
+	- O Processo de normalização consiste na transformação dos ficheiros de treino de modo a que estes
+	tenham todos a mesma estrutura em termos de pontuação, ou seja, os sinais de pontuação são tratados
+	de modo a aparecerem do mesmo modo em todos os autores. As regras de normalização utilizadas foram a
+	criação de espaços entre os sinais de pontuação (', . ; : ! ? ...').
+	- O programa utilizado para este processo é o sed.
+	- De seguida é efectuada a concatenação de todos os ficheiros por autor.
+
+***
+
+Cálculo dos N-gramas
+
+	- O processo de cálculo dos ngramas passa por analisar os ficheiro concatenado de cada autor e de
+	seguida criar um ficheiro ARPA com a ajuda do programa ngram-count, este programa dá a opção de
+	criar ficheiros com n-gramas e com alisamento, no nosso caso optamos por utilizar unigramas e bigramas
+	e no alisamento optámos pelo método de Laplace (add-one)
+
+***
+
+Método 1
+	- Cálculo das probabilidades n-gramas:
+		> Neste processo utilizámos o programa ngram para calcular o logaritmo de cada ficheiro de teste
+		de acordo com os ficheiros ARPA criados anteriormente, é gerado um ficheiro txt para cada probabilidade
+		calculada.
+		> De seguida o programa statistical_ngram.py verifica qual dos ficheiros anteriormente gerados
+		tem a melhor probabilidade.
+		> No final dos cálculos o programa devolve uma tabela o autor '''mais provável''' para cada método calculado
+		(unigramas e bigramas com ou sem alisamento). É de notar que muito destes resultados podem estar incorrectos
+		devido a natureza do corpus de treino e do método de alisamento (add-one) não ser o melhor.
+
+Método 2
+	- Palavras mais frequentes:
+		> Neste método, utilizando o programa mostfreqwords.py, calculámos um ranking das palavras mais utilizadas
+		por cada autor, e depois calculamos as palavras	mais utilizadas nos textos de teste.
+		> De seguida, para cada texto de teste, comparamos o ranking desse texto com o de cada autor e escolhemos o autor cujo
+		ranking tem mais palavras em comum com esse texto.
+		> De notar que algumas palavras (stopwords.txt) não foram incluídas nos cálculos do ranking, tanto para simplificar
+		a análise do texto, como para isolar as palavras importantes dos autores.
+		> No entanto, este método não é o melhor, pois os resultados variam muito consoante o universo de discurso dos textos.
+
+Método 3
+	- Árvore de decisão:
+		> O método da árvore de decisão consiste em duas partes: o treino (train.py) e a decisão (decision.py)
+		> No treino, são analizados todos os textos de todos os autores, com o objectivo de calcular algumas métricas (features)
+		de texto. O ideal seria que as features escolhidas tivessem uma correlação muito forte com o autor de cada texto. De seguida,
+		estas features são exportadas para um ficheiro (training-data.csv).
+		> As features utilizadas são:
+			- Comprimento médio de uma frase
+			- Desvio padrão de uma frase
+			- Número médio de pontuações por frase
+		> Na decisão, as features dos textos de treino são importadas. De seguida, para cada texto de teste, calculam-se as suas features;
+		com base nestas features, será efectuada uma decisão consoante a árvore de decisão criada e com parâmetros optimizados com base numa
+		avaliação n-fold, utilizando o corpus de treino.
+		> Este método falha se as features escolhidas para identificar um texto não forem suficientemente boas, isto é, variarem muito dentro
+		dos textos do mesmo autor, ou se não variarem muito entre autores.
+
+
+***

@@ -1,0 +1,201 @@
+package pt.tecnico.myDrive.domain;
+
+class MyDrive {
+
+    Integer lastID;
+}
+
+class User {
+
+    String username;
+    String password;
+    String name;
+    String umask;    
+}
+
+class MyDriveFile {
+
+    String name;
+    Integer id;
+    String fmask;
+    DateTime date;   
+}
+
+class PlainFile extends MyDriveFile {
+
+    String text;
+}
+
+class Link extends PlainFile {
+}
+
+class App extends PlainFile {
+}
+
+class Dir extends MyDriveFile {
+
+    Integer size;
+}
+
+class Session {
+
+    DateTime time;
+    long token;
+}
+
+class SessionManager;
+
+class EnvVar {
+
+    String name;
+    String value;
+}
+
+class Association {
+
+	String extension;
+}
+
+relation DomainRootHasMyDriveApplication {
+
+    .pt.ist.fenixframework.DomainRoot playsRole root {
+        multiplicity 0..1;
+    }
+
+    MyDrive playsRole mydrive {
+        multiplicity 0..1;
+    }
+}
+
+relation MyDriveHasUsers {
+
+    MyDrive playsRole mydrive {
+        multiplicity 1;
+    }
+    
+    User playsRole user {
+        multiplicity *;
+    }
+}
+
+relation UsersHaveFiles {
+
+    User playsRole owner {
+        multiplicity 1;
+    }
+    
+    MyDriveFile playsRole file {
+        multiplicity *;
+    }
+}
+
+relation DirectoriesHaveFiles {
+
+    Dir playsRole parentDir {
+        multiplicity 1;
+    }
+    
+    MyDriveFile playsRole file {
+        multiplicity *;
+    }
+}
+
+relation UsersHaveHomeDirectory {
+
+    User playsRole user {
+        multiplicity 1;
+    }
+    
+    Dir playsRole homeDir {
+        multiplicity 1;
+    }
+}
+    
+relation MyDriveHasRootDirectory {
+
+    MyDrive playsRole mydrive {
+        multiplicity 1;
+    }
+    
+    Dir playsRole rootDir {
+        multiplicity 1;
+    }
+}
+
+relation MyDriveHasSessionManager {
+
+    MyDrive playsRole mydrive {
+        multiplicity 1;
+    }
+    
+    SessionManager playsRole sessionManager {
+        multiplicity 1;
+    }
+}
+
+relation SessionManagerHasSessions {
+
+    SessionManager playsRole sessionManager {
+        multiplicity 1;
+    }
+
+    Session playsRole session {
+        multiplicity *;
+    }
+}
+
+relation SessionsHaveUsers {
+
+    Session playsRole session {
+        multiplicity *;
+    }
+
+    User playsRole user {
+        multiplicity 1;
+    }
+}  
+
+relation SessionsHaveCurrentDirectory {
+
+    Session playsRole session {
+        multiplicity *;
+    }
+
+    Dir playsRole currentDir {
+        multiplicity 1;
+    }
+}
+
+relation SessionsHaveEnvVars {
+
+    Session playsRole session {
+        multiplicity 1;
+    }
+
+    EnvVar playsRole envVar {
+        multiplicity *;
+    }
+} 
+
+relation UsersHaveAssociations {
+
+    User playsRole user {
+        multiplicity 1;
+    }
+    
+    Association playsRole association {
+        multiplicity *;
+    }
+}
+
+relation AssociationHasApp {
+
+	Association playsRole association {
+        multiplicity *;
+    }
+    
+    App playsRole app {
+        multiplicity 1;
+    }
+}
+

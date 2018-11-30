@@ -1,0 +1,10 @@
+all: escritor leitor paralelo
+
+escritor: escritor.c escritor.h header.h
+	gcc -g -Wall -pedantic -ansi -o escritor escritor.c 
+
+leitor: leitor.c leitor.h header.h
+	gcc -Wall -pedantic -ansi -o leitor leitor.c 
+	
+paralelo: paralelo.c 
+	gcc -Wall -pedantic -ansi -o paralelo paralelo.c

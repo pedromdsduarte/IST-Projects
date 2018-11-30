@@ -1,0 +1,149 @@
+package pt.tecnico.myDrive.domain;
+
+class MyDrive {
+
+    Integer lastID;
+}
+
+class User {
+
+    String username;
+    String password;
+    String name;
+    String umask;    
+}
+
+class MyDriveFile {
+
+    String name;
+    Integer id;
+    String fmask;
+    DateTime date;   
+}
+
+class PlainFile extends MyDriveFile {
+
+    String text;
+}
+
+class Link extends PlainFile {
+}
+
+class App extends PlainFile {
+}
+
+class Dir extends MyDriveFile {
+
+    Integer size;
+}
+
+class Session {
+
+    DateTime time;
+    long token;
+}
+
+class SessionManager;
+
+class EnvVar {
+
+    String name;
+    String value;
+}
+
+relation DomainRootHasMyDriveApplication {
+
+    .pt.ist.fenixframework.DomainRoot playsRole root {
+        multiplicity 0..1;
+    }
+
+    MyDrive playsRole mydrive {
+        multiplicity 0..1;
+    }
+}
+
+relation MyDriveHasUsers {
+
+    MyDrive playsRole mydrive;
+    
+    User playsRole user {
+        multiplicity *;
+    }
+}
+
+relation UsersHaveFiles {
+
+    User playsRole owner;
+    
+    MyDriveFile playsRole file {
+        multiplicity *;
+    }
+}
+
+relation DirectoriesHaveFiles {
+
+    Dir playsRole parentDir;
+    
+    MyDriveFile playsRole file {
+        multiplicity *;
+    }
+}
+
+relation UsersHaveHomeDirectory {
+
+    User playsRole user;
+    
+    Dir playsRole homeDir;
+}
+    
+relation MyDriveHasRootDirectory {
+
+    MyDrive playsRole mydrive;
+    
+    Dir playsRole rootDir;
+}
+
+relation MyDriveHasSessionManager {
+
+    MyDrive playsRole mydrive;
+    
+    SessionManager playsRole sessionManager;
+}
+
+relation SessionManagerHasSessions {
+
+    SessionManager playsRole sessionManager;
+
+    Session playsRole session {
+        multiplicity *;
+    }
+}
+
+relation SessionsHaveUsers {
+
+    Session playsRole session {
+        multiplicity *;
+    }
+
+    User playsRole user;
+}  
+
+relation SessionsHaveCurrentDirectory {
+
+    Session playsRole session {
+        multiplicity *;
+    }
+
+    Dir playsRole currentDir;
+}
+
+relation SessionsHaveEnvVars {
+
+    Session playsRole session;
+
+    EnvVar playsRole envVar {
+        multiplicity *;
+    }
+} 
+
+

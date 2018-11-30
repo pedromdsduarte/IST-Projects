@@ -1,0 +1,52 @@
+<mydrive>
+  <users>
+    <user username="test">
+      <password>blabla</password>
+      <name>Test</name>
+      <umask>rwxd----</umask>
+    </user>
+    <user username="root">
+      <password>***</password>
+      <name>Super User</name>
+      <umask>rwxdr-x-</umask>
+    </user>
+  </users>
+  <files>
+    <file id="1" type="Dir">
+      <owner>root</owner>
+      <name>/</name>
+      <fmask>rwxdr-x-</fmask>
+      <path>/</path>
+      <date>26/03/2016 21:03:40</date>
+    </file>
+    <file id="2" type="Dir">
+      <owner>root</owner>
+      <name>home</name>
+      <fmask>rwxdr-x-</fmask>
+      <path>/home</path>
+      <date>26/03/2016 21:03:40</date>
+    </file>
+    <file id="5" type="App">
+      <owner>test</owner>
+      <name>Vida</name>
+      <fmask>rwxd----</fmask>
+      <path>/home/Vida</path>
+      <date>26/03/2016 21:03:40</date>
+      <content>LocaLocaLoca</content>
+    </file>
+    <file id="4" type="Dir">
+      <owner>test</owner>
+      <name>test</name>
+      <fmask>rwxd----</fmask>
+      <path>/home/test</path>
+      <date>26/03/2016 21:03:40</date>
+    </file>
+    <file id="3" type="Dir">
+      <owner>root</owner>
+      <name>root</name>
+      <fmask>rwxdr-x-</fmask>
+      <path>/home/root</path>
+      <date>26/03/2016 21:03:40</date>
+    </file>
+  </files>
+</mydrive>

@@ -1,0 +1,9 @@
+### Grupo 068
+### Pedro Santos - 78328
+### Gonçalo Fialho - 79112
+Na entrega intremédia do projecto tivemos problemas em implementar a classe IO.readString e consequentemente não conseguimos implementar no textui as funções open, save, login e createuser que estavam previstas. (por
+usarem como argumentos informação que só o IO.readString nos podia fornecer).
+Seguindo a abstração que nos foi transmitida na aula optamos por guardar os nossos utilizadores em Maps visto que cada um possuia um username diferente que podia ser usado como chave do Map.
+O nosso Manager atua independentemente de existir um FileSystem ou não a ele associado podendo Utilizador do programa decidir o que fazer na altura da sua criação (Novo Filesystem, abrir filesystem).
+A nossa dificuldade nesta entrega foi o facto de não termos conseguido adicionar os usernames e entradas que dificultaram ainda mais as devoluções (neste caso quase nulas) do listar e do listar users.
+Faltam ainda implementar alguma classes do core, nomeadamente maior parte dos métodos que manipulam os ficheiros.

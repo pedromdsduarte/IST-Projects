@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mydrive>
+    <users>
+		<user username = "root">
+            <password>***</password>
+            <name>Super User</name>
+            <umask>rwxd--------</umask>
+			
+        </user>
+        <user username = "Zecarlos95">
+            <password>12345</password>
+            <name>Ze Carlos</name>
+            <umask>rwx---------</umask>
+			
+        </user>
+		<user username = "portulinas">
+            <password>qwerty</password>
+            <name>Goncalo Fialho</name>
+            <umask>rwx---------</umask>
+			
+        </user>
+		<user username = "psnint">
+            <password>helloworld</password>
+            <name>Pedro Santos</name>
+            <umask>rwx---------</umask>
+			
+        </user>
+		<user username = "mdancer">
+            <password>mdancer</password>
+            <name>Ruben Memes</name>
+            <umask>rwx---------</umask>
+			
+        </user>
+		<user username = "mteor">
+            <password>ovos</password>
+            <name>Diogo Pereira</name>
+            <umask>rwx---------</umask>
+			
+        </user>
+    </users>
+   
+    <files>
+        <file id="111" type="link">
+            <owner>portulinas</owner>
+			<name>1.txt</name>
+            <fmask>rwx---------</fmask>
+			<!--<content></content>-->
+			<path>/home/portulinas</path>
+			<date></date>
+        </file>
+		<file id="222" type="app">
+            <owner>portulinas</owner>
+			<name>2.txt</name>
+            <fmask>rwx---------</fmask>
+			<!--<content></content>-->
+			<path>/home/portulinas</path>
+			<date></date>
+
+        </file>
+		<file id="333" type="PlainFile">
+            <owner>portulinas</owner>
+			<name>3.txt</name>
+            <fmask>rwx---------</fmask>
+			<content>Exemplo de Texto</content>
+			<path>/home/portulinas</path>
+			<date></date>
+        </file>
+		<file id="444" type="PlainFile">
+            <owner>portulinas</owner>
+			<name>4.txt</name>
+            <fmask>rwx---------</fmask>
+			<!--<content></content>-->
+			<path>/home/portulinas</path>
+			<date></date>
+        </file>
+    </files>
+</mydrive>

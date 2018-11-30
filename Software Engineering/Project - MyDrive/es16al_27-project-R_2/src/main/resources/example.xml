@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mydrive>
+  <users>
+    <user username="mteor">
+      <password>ovos</password>
+      <name>Diogo Pereira</name>
+      <umask>rwx---------</umask>
+    </user>
+    <user username="mdancer">
+      <password>mdancer</password>
+      <name>Ruben Memes</name>
+      <umask>rwx---------</umask>
+    </user>
+    <user username="psnint">
+      <password>helloworld</password>
+      <name>Pedro Santos</name>
+      <umask>rwx---------</umask>
+    </user>
+    <user username="portulinas">
+      <password>qwerty</password>
+      <name>Goncalo Fialho</name>
+      <umask>rwx---------</umask>
+    </user>
+    <user username="zecarlos95">
+      <password>12345</password>
+      <name>Ze Carlos</name>
+      <umask>rwx---------</umask>
+    </user>
+    <user username="root">
+      <password>***</password>
+      <name>Super User</name>
+      <umask>rwxdr-x-</umask>
+    </user>
+  </users>
+  <files>
+    <file id="1" type="Dir">
+      <owner>root</owner>
+      <name>/</name>
+      <fmask>rwxdr-x-</fmask>
+      <path>/</path>
+      <date>14/03/2016 16:40:09</date>
+    </file>
+    <file id="2" type="Dir">
+      <owner>root</owner>
+      <name>home</name>
+      <fmask>rwxdr-x-</fmask>
+      <path>/home</path>
+      <date>14/03/2016 16:40:09</date>
+    </file>
+    <file id="3" type="Dir">
+      <owner>root</owner>
+      <name>root</name>
+      <fmask>rwxdr-x-</fmask>
+      <path>/home/root</path>
+      <date>14/03/2016 16:40:09</date>
+    </file>
+    <file id="4" type="Dir">
+      <owner>zecarlos95</owner>
+      <name>zecarlos95</name>
+      <fmask>rwx---------</fmask>
+      <path>/home/zecarlos95</path>
+      <date>14/03/2016 16:40:09</date>
+    </file>
+    <file id="5" type="Dir">
+      <owner>portulinas</owner>
+      <name>portulinas</name>
+      <fmask>rwx---------</fmask>
+      <path>/home/portulinas</path>
+      <date>14/03/2016 16:40:09</date>
+    </file>
+    <file id="6" type="Dir">
+      <owner>psnint</owner>
+      <name>psnint</name>
+      <fmask>rwx---------</fmask>
+      <path>/home/psnint</path>
+      <date>14/03/2016 16:40:09</date>
+    </file>
+    <file id="7" type="Dir">
+      <owner>mdancer</owner>
+      <name>mdancer</name>
+      <fmask>rwx---------</fmask>
+      <path>/home/mdancer</path>
+      <date>14/03/2016 16:40:09</date>
+    </file>
+    <file id="8" type="Dir">
+      <owner>mteor</owner>
+      <name>mteor</name>
+      <fmask>rwx---------</fmask>
+      <path>/home/mteor</path>
+      <date>14/03/2016 16:40:09</date>
+    </file>
+  </files>
+</mydrive>

@@ -1,0 +1,38 @@
+Relatorio UML - Grupo 68
+Goncalo Fialho 79112
+Pedro Santos 78328
+
+O relatório enviado contém 6 classes:
+- Manager
+- FileSystem
+- User
+- Entry (Abstracta)
+- File (herdada de Entry)
+- Directory (herdada de Entry)
+
+#Class Manager#
+A classe Manager recebe comandos que são enviados ao FileSystem, que executa as funções referidas no enunciado.
+Esta classe também contém as funções que criam, abrem e fecham o Filesystem, assim como o login.
+O Manager guarda a sessão actual do Filesystem ("_session").
+
+#Class FileSystem#
+Já o FileSystem tem como atributos arrays da classe User e de Directory que guardam, respectivamente, os utilizadores e directorias existentes;
+cada FileSystem contém um User "root" e um directório "home".
+Existe também no Filesystem dois atributos chamados "currentUser" da class User, e "currentDirectory" da classe Directory, que são utilizados para
+confirmar a realização dos métodos do FileSystem.
+
+#Class User#
+Esta classe contém os atributos username, e name; cada User tem de possuir pelo menos um directório.
+
+#Class Entry#
+Esta é uma classe abstracta porque no programa não são criadas entradas, apenas são criadas casos específicos de entradas (File, Directory).
+O atributo size desta classe especifica o tamanho total da entrada.
+É também relevante afirmar que cada Entry é criada por, e tem obrigatóriamente, um User ("_owner").
+
+#Class File#
+Esta classe herda de "Entry" e tem conteudo do tipo string.
+
+#Class Directory"
+O atributo "_path" desta classe refere o caminho absoluto do directorio.
+Cada Directory necessita obrigatóriamente de ter um directório pai e o seu próprio directório, por isso os especificamos ("_own","_parent").
+É também possível que o Directory contenha uma ou mais Entry ("_entries").

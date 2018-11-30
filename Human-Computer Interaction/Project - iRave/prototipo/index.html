@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+        <link type="text/css" media="all" rel="stylesheet" href="stylesheet.css"/>
+        <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+        <link rel="stylesheet" type="text/css" href="jquery.iviewer.css"/>
+        <title>iRave</title>
+        
+        
+        <script type="text/javascript" src="js/171jquery.min.js"></script>
+        <script type="text/javascript" src="js/jqueryui.js"></script>
+        <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+        <script type="text/javascript" src="js/jquery.iviewer.js"></script>
+     
+        
+        <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+                <script>var $j = jQuery.noConflict(true);</script>
+        
+        
+                
+                
+                <script type="text/javascript" src='js/jquery.zoom.js'></script>
+                <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+                <script src='js/drag-on.js'></script>
+
+    </head>
+
+    <body>
+        
+        <div class="frame">
+                 
+            <!--- <<<<< PHYSIC BUTTONS  >>>>> -->
+            <div class="help" onclick="help();"><img src="icons/question58.png"></div>
+            <div class="return" onclick="return_back();"><img src="icons/undo10.png"></div>
+            <div class="lock" onclick="lock_screen();"><img src="icons/lock77.png"></div>
+            <div class="home" onclick="go_main();"><img src="icons/home5.png"></div>
+            
+            <!--- <<<<< LOCK SCREEN >>>>> -->
+            <div class="screen" id="lock_screen">
+                 <div class="help_screen" style="z-index: 1000;">
+                    <a class="help_title" style="top:10% ;line-height:0;">Ecrã<p></p>Bloqueio</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Pressione o botão de bloqueio para aceder ao menu principal</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt"></div>
+        		<div  style="font-size:12px" id="date"></div>
+        		<marquee style="font-size:14px;" scrolldelay="100" class="playing"><b id="playing_song">Palco Mundo: Darude - Sandstorm</b></marquee>
+        		<div class="unlock"><img id="unlock" class="unlock" src="icons/unlock_icon.png"></div>
+        		<div class="press-to-unlock">Pressione para desbloquear</div>
+            </div>
+            
+            <!--- <<<<< MAIN SCREEN >>>>> -->
+            <div class="screen" id="main_screen">
+                <div class="help_screen" style="  z-index: 1000;">
+                    <a class="help_title">Menu Principal</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <a style="  font-size: 10pt;position: absolute;width: 80%;left: 11%;text-align: justify;">Clique nos ícones para mudar de opção e clique no ícone principal para ir para o menu respectivo.</a>
+                    </div>
+                    <div onclick="help();" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p style="font-size:20px; color:#DE8D47"> Menu Principal </p>
+                <div id="carousel">
+                	<img id="compras" src="icons/carts.png" alt="" class="slide"  />
+                	<img id="social" src="icons/multiple25.png" alt="" class="slide" />
+                	<img id="mapa" src="icons/pin66.png" alt="" class="slide" />
+                	<img id="camera-icon" src="icons/camera59.png" alt="" class="slide" />
+                </div>
+                   
+                <ul id="carousel-descriptions">
+                	<li class="desc current">Loja</li>
+                	<li class="desc">Social</li>
+                	<li class="desc">Mapa</li>
+                	<li class="desc">Camera</li>
+                </ul>
+
+            </div>
+            
+            
+            <!--#############################################                      
+                ######               SHOP               #####
+                #############################################
+            -->   
+            
+            <!--- <<<<< SHOP MENU >>>>> -->
+            <div class="screen" id="shop_screen">
+                <div class="help_screen" style="  z-index: 1000;">
+                    <a class="help_title">Menu Compras</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <a  style="  font-size: 10pt;position: absolute;width: 80%;left: 11%;text-align: justify;">Clique nos ícones para aceder à opção pretendida.</a>
+                    </div>
+                    <div onclick="help();" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p style="font-size:20px; color:#DE8D47"> Compras </p>
+                <div>
+                    <div class="icon-div">
+                        <img onclick="$('#choose_food').css('background-color','grey');$('#choose_drink').css('background-color','white');  shopping=1;" class="icon" style="position:absolute; top: 35%; left:10%; max-height: 50px; max-width: 50px;" id="compras-comprar" src="icons/shoppingcart14.png">
+                    </div>
+                    <span onclick="$('#choose_food').css('background-color','grey'); shopping=1;"  style="font-size: 10pt; position: absolute; top: 70%; left: 10%; color:#91C7A9">Comprar</span>
+                    <span  style="font-size: 10pt; position: absolute; top: 70%; right: 10%; color:#91C7A9">Histórico</span>
+                    <div class="icon-div">
+                        <img onclick='update_shoplist();' class="icon" style="position:absolute; top: 35%; right:10%; max-height: 50px; max-width: 50px;" id="compras-historico" src="icons/history6.png">
+                    </div>
+                </div>
+            </div>
+            
+            <!--- <<<<< SHOP CANCELLED >>>>> -->
+            <div class="screen" id="cancelled_screen" style="line-height: 1">
+                <p class="title"> Compra anulada! </p>
+                <span style="font-size: 12pt; color: white; margin: 1px 1px 1px 1px; position: absolute; top: 40%; right: 0%">A sua compra foi anulada com sucesso.</span>
+                <div class="buttons" style="color: #91C7A9; margin-top: 1px" onclick='go_main("cancelled_screen");'>OK</div>
+            </div>
+            
+            <!--- <<<<< SHOP BUY FOOD >>>>> -->
+            <div class="screen" id="shop_screen1" style="line-height:1">
+                <div class="help_screen" style="z-index: 1000;">
+                    <a class="help_title">Menu Compras</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="   line-height: 12pt; font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Selecione Comida ou Bebida e adicione o número de produtos que deseja no seu pedido. Clique no X para cancelar a compra ou na Seta para continuar</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p class="title"> Comprar </p>
+                <div style="position: absolute;font-size: 12pt;width: 71%;height: 12%;left: 14%;background-color: white;color: black;line-height: 22px;border-style: solid;border-color: blue;border-width: 1px;">
+                    <div onclick="choose_shop(0);" id="choose_food" style="  height: 100%;    position: absolute;    width: 50%;    left: 0%;    border-right-style: solid;    border-color: blue;    border-width: 1px;">Comida</div>
+                    <div onclick="choose_shop(1);" id="choose_drink" style="   height: 100%;   position: absolute;    width: 50%;    right: 0%;">Bebida</div>
+                </div>
+                <div class="you_sure" id="you_sure" >  Cancelar compra?
+                    <div id="no" class="no_button" onclick='hide_yousure("shop_screen1");'>Não </div>
+                    <div class="yes_button" onclick='shop_canceled("shop_screen1");' id="yes">Sim</div>
+                </div>
+                <div class="food" id="food">
+                    <div id="itemFood1" class="item">
+                        <div class="name">Batatas</div>
+                        <div onclick='addFoodItem("1")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeFoodItem("1")' class="less">-</div>
+                        <div class="value">1.50€</div>
+                    </div>
+                    
+                    <div id="itemFood2" class="item">
+                        <div class="name">Bolachas</div>
+                        <div onclick='addFoodItem("2")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeFoodItem("2")' class="less">-</div>
+                        <div class="value">2.00€</div>
+                    </div>
+                    
+                    <div id="itemFood3" class="item">
+                        <div class="name">Burguer</div>
+                        <div onclick='addFoodItem("3")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeFoodItem("3")' class="less">-</div>
+                        <div class="value">5.00€</div>
+                    </div>
+                    
+                    <div id="itemFood4" class="item">
+                        <div class="name"><span style="font-size: 9pt">Cachorro<span></span></div>
+                        <div onclick='addFoodItem("4")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeFoodItem("4")' class="less">-</div>
+                        <div class="value">3.50€</div>
+                    </div>
+                    
+                    <div id="itemFood5" class="item">
+                        <div class="name">Pipocas</div>
+                        <div onclick='addFoodItem("5")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeFoodItem("5")' class="less">-</div>
+                        <div class="value">2.50€</div>
+                    </div>
+                    
+                    <div id="itemFood6" class="item">
+                        <div class="name">Snack</div>
+                        <div onclick='addFoodItem("6")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeFoodItem("6")' class="less">-</div>
+                        <div class="value">2.00€</div>
+                    </div>
+                    
+                </div>
+                <div class="food" id="drink1">
+                    
+                    <div id="item1" class="item">
+                        <div class="name">Água</div>
+                        <div onclick='addItem("1")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeItem("1")' class="less">-</div>
+                        <div class="value">1.00€</div>
+                    </div>
+                                        
+                    <div id="item2" class="item">
+                        <div class="name">Café</div>
+                        <div onclick='addItem("2")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeItem("2")' class="less">-</div>
+                        <div class="value">1.00€</div>
+                    </div>
+                                        
+                    <div id="item3" class="item">
+                        <div class="name">Cerveja</div>
+                        <div onclick='addItem("3")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeItem("3")' class="less">-</div>
+                        <div class="value">1.50€</div>
+                    </div>
+                                        
+                    <div id="item4" class="item">
+                        <div class="name">Coca-Cola</div>
+                        <div onclick='addItem("4")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeItem("4")' class="less">-</div>
+                        <div class="value">2.00€</div>
+                    </div>
+                                        
+                    <div id="item5" class="item">
+                        <div class="name">Laranjada</div>
+                        <div onclick='addItem("5")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeItem("5")' class="less">-</div>
+                        <div class="value">4.50€</div>
+                    </div>
+                    
+                    <div id="item6" class="item">
+                        <div class="name">Limonada</div>
+                        <div onclick='addItem("6")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeItem("6")' class="less">-</div>
+                        <div class="value">4.50€</div>
+                    </div>
+
+                </div>
+    			<div class="buttons">
+    			    <div class="next">
+    			        <img class="next_image"  onclick="price_text(); price_text1();list_products_requested();"  id="compras-entrega" src="icons/right-arrow6.png">
+    			        <img onclick='show_yousure("shop_screen1");' class="cancel_image" src="icons/cancel29.png">
+    			    </div>
+    			</div>	
+                
+            </div>    
+                
+            <!--- <<<<< SHOP BUY DRINKS >>>>> 
+            <div class="screen" id="shop_screen3" style="line-height:1">
+                <div id="txt" style="font-size:10px"></div>
+                <p class="title"> Comprar </p>
+                <span style="font-size:13px; line-height:1; margin:0 0 0 0">Bebida: 2/4</span>
+                <div class="you_sure" id="you_sure" > Cancelar compra?
+                    <div id="no" class="no_button" onclick='hide_yousure("shop_screen3");'>Não </div>
+                    <div class="yes_button" onclick='shop_canceled("shop_screen3");' id="yes">Sim</div>
+                </div>
+                <div class="food" id="drink">
+                    
+                    <div id="item1" class="item">
+                        <div class="name">Água</div>
+                        <div onclick='addItem("1")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeItem("1")' class="less">-</div>
+                        <div class="value">1.00€</div>
+                    </div>
+                                        
+                    <div id="item2" class="item">
+                        <div class="name">Café</div>
+                        <div onclick='addItem("2")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeItem("2")' class="less">-</div>
+                        <div class="value">1.00€</div>
+                    </div>
+                                        
+                    <div id="item3" class="item">
+                        <div class="name">Cerveja</div>
+                        <div onclick='addItem("3")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeItem("3")' class="less">-</div>
+                        <div class="value">1.50€</div>
+                    </div>
+                                        
+                    <div id="item4" class="item">
+                        <div class="name">Coca-Cola</div>
+                        <div onclick='addItem("4")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeItem("4")' class="less">-</div>
+                        <div class="value">2.00€</div>
+                    </div>
+                                        
+                    <div id="item5" class="item">
+                        <div class="name">Laranjada</div>
+                        <div onclick='addItem("5")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeItem("5")' class="less">-</div>
+                        <div class="value">4.50€</div>
+                    </div>
+                    
+                    <div id="item6" class="item">
+                        <div class="name">Limonada</div>
+                        <div onclick='addItem("6")' class="more">+</div>
+                        <div class="quantity">0</div>
+                        <div onclick='removeItem("6")' class="less">-</div>
+                        <div class="value">4.50€</div>
+                    </div>
+
+                </div>
+    			<div class="buttons">
+    			    <div class="next">
+    			        <img onclick="price_text();" class="next_image" id="compras-entrega" src="icons/right-arrow6.png">
+    			        <img onclick='show_yousure("shop_screen3");' class="cancel_image" src="icons/cancel29.png">
+    			    </div>
+    			</div>	
+            </div>-->
+            
+            <!--- <<<<< SHOP METHOD >>>>> -->
+            <div class="screen" id="shop_screen4">
+                <div class="help_screen" style="z-index: 1000;">
+                    <a class="help_title">Método Entrega</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Selecione o método de entrega que deseja para a sua encomenda.<p></p>Entrega em mãos - Um funcionário irá ter consigo para lhe entregar a comida.<p></p>Ir Buscar à loja - Terá de levantar os produtos na loja</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p class="title"> Comprar </p>
+                <div id="payment-method">
+                    <div class="screen3_price">
+                  	    <div class="total">Total: </div>
+                        <div id="price3" class="total" style="left: 60%;"></div>
+                    </div>
+                    <hr class="hr_total">
+                    <div class="you_sure" id="you_sure" > Cancelar compra?
+                        <div id="no" class="no_button" onclick='hide_yousure("shop_screen4");'>Não </div>
+                        <div class="yes_button" onclick='shop_canceled("shop_screen4");' id="yes">Sim</div>
+                    </div>
+                    <div class="hands" id="hands">
+                        <div onclick="get_pick1();" class="step3_element" style="left:-5px;">
+                            <img id="pick_here" src="icons/covered16.png">
+                            Entrega em mãos
+                        </div>
+                    </div>
+                    <div class="pick" id="pick">
+                        <div onclick="go_pick1();" class="step3_element" style="left:-41px;">
+                        <img id="pick_store" src="icons/shopper1.png">
+                        Levantar na loja
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons" style="font-size: 11px;line-height: 1;">
+                    <div class="next">
+    			        <img class="next_image"  onclick="shopping=0;price_text();" id="compras-confirmacao" src="icons/right-arrow6.png">
+    			        <img onclick='show_yousure("shop_screen4");' class="cancel_image" src="icons/cancel29.png">
+    			    </div>
+    			</div>
+    		    <div class="you_sure" id="you_sure" > Cancelar compra?
+                    <div id="no" class="no_button" onclick='hide_yousure("shop_screen4");'>Não </div>
+                    <div class="yes_button" onclick='shop_canceled("shop_screen4");' id="yes">Sim</div>
+                </div>
+    		    <div class="didnt-select" id="didnt-select">
+    		        É necessário pedir pelo menos um produto. Por favor volte ao ecrã anterior.
+    		    </div>
+                
+            </div>
+            
+            <!--- <<<<< SHOP CONFIRM >>>>> -->
+            <div class="screen" id="shop_screen5">
+                <div class="help_screen" style="z-index: 1000;">
+                    <a style="  left: 15%;" class="help_title">Menu Confirmação</a>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Neste ecrã é apresentada uma lista com os produtos selecionados, clique no botão verde para confirmar o seu pedido.</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p class="title"> Comprar </p>
+                <div id="esconde">
+                    <div class="screen3_price">
+                      	<div class="total">Total: </div>
+                        <div id="price4" class="total" style="left: 60%;"></div>
+                    </div>
+                        <hr class="hr_total">
+                    <div class="you_sure" id="you_sure" > Cancelar compra?
+                        <div id="no" class="no_button" onclick='hide_yousure("shop_screen5");'>Não </div>
+                      <div class="yes_button" onclick='shop_canceled("shop_screen5");' id="yes">Sim</div>
+                    </div>
+                    <div style="  top: 38%;" class="confirmation" id="confirmation">
+                    
+                    </div>
+                    
+                    
+                    <div class="buttons" style="font-size: 11px;line-height: 1;">
+                        <div class="next">
+        			        <img class="next_image" id="compras-sucesso" src="icons/confirm1.png">
+        			        <img  onclick='show_yousure("shop_screen5");'  class="cancel_image" src="icons/cancel29.png">
+        			    </div>
+        			</div>
+        		</div>
+                <div class="didnt-select" id="didnt-select" style="  position: absolute;  top: 28%;">
+        		        É necessário pedir pelo menos um produto. Por favor volte ao ecrã anterior.
+        		        <img src="icons/triangle38.png"/>
+        		    </div>
+            </div>
+            
+            <!--- <<<<< SHOP SUCESS >>>>> -->
+            <div class="screen" id="shop_sucess_screen" style="line-height: 1">
+                <div class="help_screen" style="z-index: 1000;">
+                    <a class="help_title">Sucesso Compra</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Compra efectuada com sucesso. <p></p>Se o seu pedido for ir buscar ao bar pode obter a localização clicando no botão "Obter Localização"</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <span style="font-size: 13pt; color: #87A856; line-height:1; margin:0 0 0 0; position: absolute; top: 6%; right: 30%">Sucesso!</span>
+                <span style="font-size: 12pt; color: white; position: absolute; top: 19%; right: 1%">A sua compra foi efectuada com sucesso!</span>
+                <span id="maos" style="font-size: 10pt; color: #91C7A9; position: absolute; bottom: 30%; right: 0%">Tempo estimado de entrega: <span id="time-left" style="color: gold"><strong>5 m</strong></span></span>
+                <span id="ir_buscar" style="font-size: 10pt; color: #91C7A9; position: absolute; bottom: 34%; right: 0%">Bar mais próximo: <span id="time-left" style="color: gold"><strong>Carlsberg</strong><div id="localate" style="    position: absolute; width: 75%;    top: 107%;    height: 62%;    line-height: 18px;    font-size: 10.5pt;    border-style: solid;    border-width: 2px;    left: 11%;    border-radius: 5%;    border-color: white;    color: black;    background-color: grey;"onclick="sucess_shop();" >Obter Localização</div></span></span>
+                <div onclick="sucess_shop();" class="buttons" style="color: #91C7A9; margin-top: 1px">OK</div>
+            </div>
+            
+            
+            <!--- <<<<< SHOP HISTORY >>>>> -->
+            <div class="screen" id="shop_screen2">
+                <div class="help_screen" style="z-index: 1000;">
+                    <a class="help_title">Menu Histórico</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Neste ecrã é possível obter a informação dos produtos que foram comprados anteriormente.</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p class="title">Histórico</p>
+                <div class="screen2_price">
+                  	<div class="total"><span style="font-size: 10pt; color: #6699CC">Total: </span></div>
+                    <div id="total" class="total" style="left: 60%;"></div>
+                </div>
+                <hr class="hr_total_2">
+                <div class="history_screen" id="history_screen">
+                
+                </div>
+                
+            </div>
+            
+            
+            
+            
+            <!--#############################################                      
+                ######               GPS                #####
+                #############################################
+            -->   
+            
+            <!--- <<<<< GPS MENU >>>>> -->
+            <div class="screen" id="gps_menu">
+                <div class="help_screen" style="z-index: 1000;">
+                    <a class="help_title" style="top:10% ;line-height:0;">Menu<p></p> Mapa</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Clique em Mapa para aceder ao Mapa ou em Procurar para procurar um ponto de interesse no recinto</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p style="font-size:20px; color:#DE8D47"> Mapa </p>
+             
+                <div>
+                    <div onclick='$(".map_container").show(600);' class="icon-div">
+                        <img class="icon" style="position:absolute; top: 35%; left:10%; max-height: 50px; max-width: 50px;" id="mapa-map" src="icons/compass67.png">
+                    </div>
+                    <span  style="font-size: 10pt; position: absolute; top: 70%; left: 10%; color:#91C7A9">Ver Mapa</span>
+                    <span  style="font-size: 10pt; position: absolute; top: 70%; right: 10%; color:#91C7A9">Procurar</span>
+                    <div class="icon-div">
+                        <img class="icon" style="position:absolute; top: 35%; right:10%; max-height: 50px; max-width: 50px;" id="mapa-search" src="icons/magnifier.png">
+                    </div>
+                </div>
+            </div>
+           
+            
+             <!--- <<<<< GPS MAP >>>>> -->
+            <div class="screen" id="gps_map">
+                 <div class="help_screen" style="z-index: 1000;">
+                    <a class="help_title">Mapa</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">+ aumentar zoom<p></p>- diminuir zoom<p></p>Arraste com o dedo para movimentar o mapa</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <p class="title"> Mapa </p>
+                <div class="thumbnail"  id='ex2'>
+		            <img class="image" id='map_image' src='images/main_map.gif' />
+	            </div>
+	            <div class="back_gps">
+	                <div style="position: absolute;    width: 50%;    right: 16%;" onclick="$('#map_image').css('width','150%');$('#map_image').css('height','130%');">+</div>
+	                <div style="position: absolute;width: 20%;left: 28%;border-right: solid;border-right-width: 2pt;height: 100%;" onclick="$('#map_image').css('width','100%');$('#map_image').css('height','100%');">-</div>
+	            </div>
+            </div>
+            
+            
+            
+            <!--- <<<<< GPS SEARCH >>>>> -->
+            <div class="screen" id="gps_search">
+                <div class="help_screen" style="z-index: 1000;">
+                    <a class="help_title" style="top:10% ;line-height:0;">Procurar<p></p> Amigos</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Obtenha o troço para a localização desejada, selecione a opção pretendida para continuar</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p class="title"> Mapa </p>
+                <span style="font-size:13px; line-height:1; margin:0 0 0 0">Procurar por:</span>
+                <div id="search-for">
+                    <div>
+                        <div id="mapa-friends" class="icon-div">
+                            <img onclick=" gps_search_friends_list();" class="icon" style="position:absolute; top: 35%; left:10%; max-height: 50px; max-width: 50px;" id="friends" src="icons/user3.png">
+                        </div>
+                        <span style="font-size: 10pt; position: absolute; top: 65%; left: 10%; color:#91C7A9">Amigos</span>
+                        <span  style="font-size: 8pt; position: absolute; top: 66%; right: 12%; color:#91C7A9;">Pontos de <br>Interesse</span>
+                        <div onclick='reset_buildingtype();' id="buildings" class="icon-div">
+                            <img class="icon" style="position:absolute; top: 35%; right:10%; max-height: 50px; max-width: 50px;" id="buildings" src="icons/store5.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <!--- <<<<< GPS SEARCH FRIENDS >>>>> -->
+            <div class="screen" id="gps_search_friends">
+                <div class="help_screen" style="z-index: 1000;">
+                    <a class="help_title">Procurar Amigos</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Selecione o amigo que pretende localizar</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p class="title"> Mapa </p>
+                <span class="search_friendstext">Procurar Amigos:</span>
+                <div class="you_sure" id="you_sure" >  Cancelar GPS?
+                    <div id="no" class="no_button" onclick='hide_yousure("1");'>Não </div>
+                    <div class="yes_button" onclick='gps_canceled("gps_search_friends")' id="yes">Sim</div>
+                </div>
+                
+                <div class="friends_container">
+                   <!-- <div onclick="select_friend_gps(1)" id="friend1" class="friend">
+                        <img class="friend_icon" src="images/goncalo.png">
+                        <div class="search_name">Gonçalo Fialho</div>
+                        <div class="search_location">Em Palco Mundo</div>
+                    </div>
+                    <div onclick="select_friend_gps(2)" id="friend2" class="friend">
+                        <img class="friend_icon" src="images/jota.png">
+                        <div class="search_name">João Pedro</div>
+                        <div class="search_location">Em Bar Superbock</div>
+                    </div>
+                    <div onclick="select_friend_gps(3)" id="friend3" class="friend">
+                        <img class="friend_icon" src="images/pedro.png">
+                        <div class="search_name">Pedro Santos</div>
+                        <div class="search_location">Em Banca Control</div>
+                    </div>-->
+                    
+                </div>
+                <div class="buttons">
+    			    <div class="next">
+    			        <img id="check-friend" onclick="$('.image').attr('src','images/control_map.gif');"  class="next_image" src="icons/confirm1.png">
+    			        <img onclick='show_yousure("1");' class="cancel_image" src="icons/cancel29.png">
+    			    </div>
+			    </div>	
+            </div>
+            
+            
+            <!--- <<<<< GPS SEARCH BUILDINGS >>>>> -->
+            <div class="screen" id="gps_search_buildings">
+                <div class="help_screen" style="z-index: 1000;">
+                    <a class="help_title">Procurar Edificio</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Selecione o edifício que pretende localizar</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p class="title"> Mapa </p>
+                <span style="font-size:13px; line-height:1; margin:0 0 0 0">Procurar Edifícios:</span>
+                <div class="you_sure" id="you_sure" >  Cancelar GPS?
+                    <div id="no" class="no_button" onclick='hide_yousure("shop_screen1");'>Não </div>
+                    <div class="yes_button" onclick='gps_canceled("gps_search_buildings")' id="yes">Sim</div>
+                </div>
+                <div class="buildings-list" id="buildings-list">
+                    <div onclick='select_building("1")' class="buildings-item-list" id="building1">
+                       <div class="buildings-item-index">1</div>
+                       <div class="buildings-item-name">Bancas</div>
+                   </div>
+                   <div onclick='select_building("2")' class="buildings-item-list" id="building2">
+                       <div class="buildings-item-index">2</div>
+                       <div class="buildings-item-name">Bares</div>
+                   </div>
+                   
+                   <div onclick='select_building("3")' class="buildings-item-list" id="building3">
+                       <div class="buildings-item-index">3</div>
+                       <div class="buildings-item-name">Palcos</div>
+                   </div>
+                   <div onclick='select_building("4")' class="buildings-item-list" id="building4">
+                       <div class="buildings-item-index">4</div>
+                       <div class="buildings-item-name">WC's</div>
+                   </div>
+                </div>
+                <div class="buttons">
+    			    <div class="next">
+    			        <img id="next-buildings-list" onclick="$('#confirm-gps').hide();building_type();$('#search_for_gps').text('Procurar '+current_building_selected);" class="next_image" src="icons/right-arrow6.png">
+    			        <img id="cancel_search" onclick='show_yousure("1");' class="cancel_image" src="icons/cancel29.png">
+    			    </div>
+			    </div>	
+            </div>
+            
+            <!--- <<<<< SEARCH BANCAS >>>>> -->
+            <div class="screen" id="gps_search_stands">
+                <div class="help_screen" style="z-index: 1000;">
+                    <a class="help_title">Procurar Edificio</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Selecione o edifício que pretende localizar</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p class="title"> Mapa </p>
+                <span id="search_for_gps"style="font-size:13px; line-height:1; margin:0 0 0 0">Procurar Bancas:</span>
+                <div class="you_sure" id="you_sure" >  Cancelar GPS?
+                    <div id="no" class="no_button" onclick='hide_yousure("shop_screen1");'>Não </div>
+                    <div class="yes_button"  onclick='gps_canceled("gps_search_stands")' id="yes">Sim</div>
+                </div>
+                <div class="buildings-list" id="buildings-lists0">
+                    <div onclick='select_banca("1")' class="buildings-item-list" id="banca1">
+                       <div class="buildings-item-index">1</div>
+                       <div class="buildings-item-name">Control</div>
+                   </div>
+                   <div onclick='select_banca("2")' class="buildings-item-list" id="banca2">
+                       <div class="buildings-item-index">2</div>
+                       <div class="buildings-item-name">Fnac</div>
+                   </div>
+                   
+                   <div onclick='select_banca("3")' class="buildings-item-list" id="banca3">
+                       <div class="buildings-item-index">3</div>
+                       <div class="buildings-item-name">MegaHits</div>
+                   </div>
+                   <div onclick='select_banca("4")' class="buildings-item-list" id="banca4">
+                       <div class="buildings-item-index">4</div>
+                       <div class="buildings-item-name">Vodafone</div>
+                   </div>
+                </div>
+                
+                <div class="buildings-list" id="buildings-lists1">
+                    <div onclick='select_bar("1")' class="buildings-item-list" id="bar1">
+                       <div class="buildings-item-index">1</div>
+                       <div class="buildings-item-name">AfterParty</div>
+                   </div>
+                   <div onclick='select_bar("2")' class="buildings-item-list" id="bar2">
+                       <div class="buildings-item-index">2</div>
+                       <div class="buildings-item-name">Carlsberg</div>
+                   </div>
+                   
+                   <div onclick='select_bar("3")' class="buildings-item-list" id="bar3">
+                       <div class="buildings-item-index">3</div>
+                       <div class="buildings-item-name">RedBull</div>
+                   </div>
+                   <div onclick='select_bar("4")' class="buildings-item-list" id="bar4">
+                       <div class="buildings-item-index">4</div>
+                       <div class="buildings-item-name">Superbock</div>
+                   </div>
+                </div>
+                
+                <div class="buildings-list" id="buildings-lists2">
+                    <div onclick='select_stage("1")' class="buildings-item-list" id="stage1">
+                       <div class="buildings-item-index">1</div>
+                       <div class="buildings-item-name">Mundo</div>
+                   </div>
+                   <div onclick='select_stage("2")' class="buildings-item-list" id="stage2">
+                       <div class="buildings-item-index">2</div>
+                       <div class="buildings-item-name">Green</div>
+                   </div>
+                   
+                   <div onclick='select_stage("3")' class="buildings-item-list" id="stage3">
+                       <div class="buildings-item-index">3</div>
+                       <div class="buildings-item-name">Optimus</div>
+                   </div>
+                   <div onclick='select_stage("4")' class="buildings-item-list" id="stage4">
+                       <div class="buildings-item-index">4</div>
+                       <div class="buildings-item-name">Superbock</div>
+                   </div>
+                </div>
+                
+                <div class="buildings-list" id="buildings-lists3">
+                    <div onclick='select_wc("1")' class="buildings-item-list" id="wc1">
+                       <div class="buildings-item-index">1</div>
+                       <div class="buildings-item-name">Amarelo</div>
+                   </div>
+                   <div onclick='select_wc("2")' class="buildings-item-list" id="wc2">
+                       <div class="buildings-item-index">2</div>
+                       <div class="buildings-item-name">Azul</div>
+                   </div>
+                   
+                   <div onclick='select_wc("3")' class="buildings-item-list" id="wc3">
+                       <div class="buildings-item-index">3</div>
+                       <div class="buildings-item-name">Branco</div>
+                   </div>
+                   <div onclick='select_wc("4")' class="buildings-item-list" id="wc4">
+                       <div class="buildings-item-index">4</div>
+                       <div class="buildings-item-name">Laranja</div>
+                   </div>
+                </div>
+                
+                <div class="buttons">
+    			    <div class="next">
+    			        <img id="confirm-gps" onclick="confirm_text();" class="next_image" src="icons/right-arrow6.png">
+    			        <img id="cancel_search"  onclick='show_yousure("1");'  class="cancel_image" src="icons/cancel29.png">
+    			    </div>
+			    </div>	
+            </div>
+            
+            <!--- <<<<< CONFIRM GPS >>>>> -->
+            <div class="screen" id="gps_confirm" style="line-height: 1">
+                <div class="help_screen" style="z-index: 1000;">
+                    <a class="help_title">Confirmar</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Confirme que quer obter a localização pretendida</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <span style="font-size: 13pt; color: #87A856; line-height:1; margin:0 0 0 0; position: absolute; top: 12%; right: 22%">Confirmar:</span>
+                <span id="text_gps" style="font-size: 12pt; color: white; position: absolute; top: 30%;left:2.5%;width: 95%;"></span>
+                <div  class="yes_gps" onclick='change_map(); $("#gps_confirm").hide(350); $("#gps_map").show(350); current_screen="mapa-map";'>Sim</div>
+                <div onclick='gps_canceled("gps_confirm")' class="no_gps">Não</div>
+            </div>
+            
+            <!--- <<<<< GPS CANCELLED >>>>> -->
+            <div class="screen" id="gps_cancelled_screen" style="line-height: 1;  ">
+                <div class="help_screen" style="z-index: 1000;">
+                    <a class="help_title">Mapa Cancelado</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">A operação foi anulada com sucesso.</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <p class="title" style=" position: absolute;top: 18%;  left: 12%;"> GPS anulado! </p>
+                <span style="font-size: 12pt; color: white; margin: 1px 1px 1px 1px; position: absolute; top: 40%; right: 0%">A operação foi anulada com sucesso.</span>
+                <div class="buttons" style="color: #91C7A9; margin-top: 1px" onclick='go_main("gps_cancelled_screen");'>OK</div>
+            </div>
+            
+            <!--#############################################                      
+                ######             SOCIAL               #####
+                #############################################
+            -->   
+            <!--- <<<<< SOCIAL MENU >>>>> -->
+            <div class="screen" id="social_screen">
+                <div class="help_screen" style="z-index: 1000;">
+                     <a class="help_title" style="top:10% ;line-height:0;">Menu<p></p> Social</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Selecione a opção pretendida.</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p style="font-size:20px; color:#DE8D47;margin: 0;"> Social </p>
+             
+                <div>
+                    <span style="  font-size: 10pt;  position: absolute;  top: 46%;  left: 13%;  color: #91C7A9;">Amigos</span>
+                    <span  style="  font-size: 10pt;  position: absolute;  top: 46%;  right: 3%;  color: #91C7A9;">Mensagens</span>
+                    <span  style="    font-size: 10pt;  position: absolute;  top: 85%;  right: 31%;  color: #91C7A9;">Actividade</span>
+                    <div class="icon-div">
+                        <img class="icon" style="  position: absolute;  top: 20%;  left: 14%;  max-height: 40px;  max-width: 40px;" id="social-friends" src="icons/friends.png">
+                    </div>
+                    <div onclick="friends_messages_list();" class="icon-div">
+                        <img class="icon" style="  position: absolute;  top: 21%;  right: 14%;  max-height: 40px;  max-width: 40px;" id="social-messages" src="icons/email5.png">
+                    </div>
+                    <div class="icon-div">
+                        <img onclick="$('.list_feelings').hide();"  class="icon" style="   position: absolute;  top: 60%;  right: 38%;  max-height: 40px;  max-width: 40px;" id="social-feed" src="icons/group2.png">
+                    </div>
+                </div>
+            </div>
+            
+            <!--- <<<<< FRIENDS MENU >>>>> -->
+            <div class="screen" id="social_friends_screen">
+                <div class="help_screen" style="z-index: 1000;">
+                     <a class="help_title" style="top:10% ;line-height:0;">Menu<p></p> Amigos</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Selecione a opção pretendida.</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p style="font-size:20px; color:#DE8D47;margin: 0;"> Amigos </p>
+             
+                <div>
+                    <span style="  font-size: 10pt;  position: absolute;  top: 46%;  left: 9%;  color: #91C7A9;">Adicionar</span>
+                    <span  style="  font-size: 10pt;  position: absolute;  top: 46%;  right: 18%;  color: #91C7A9;">Lista</span>
+                    <span  style="    font-size: 10pt;  position: absolute;  top: 85%;  right: 31%;  color: #91C7A9;">Meu Perfil</span>
+                    <div class="icon-div">
+                        <img class="icon" style="  position: absolute;  top: 20%;  left: 14%;  max-height: 40px;  max-width: 40px;" id="social-add" src="icons/add40.png">
+                    </div>
+                    <div onclick="friends_list();" class="icon-div">
+                        <img class="icon" style="  position: absolute;  top: 21%;  right: 14%;  max-height: 40px;  max-width: 40px;" id="social-list-friends" src="icons/phone2.png">
+                    </div>
+                    <div class="icon-div">
+                        <img class="icon" style="   position: absolute;  top: 60%;  right: 38%;  max-height: 40px;  max-width: 40px;" id="social-myprofile" src="icons/user154.png">
+                    </div>
+                </div>
+            </div>
+            
+            <!--- <<<<< ADD FRIEND >>>>> -->
+            <div class="screen" id="add_friend_screen">
+                <div class="help_screen" style="z-index: 1000;">
+                     <a class="help_title" style="top:10% ;line-height:0;">Adicionar<p></p> Amigo</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Aproxime a pulseira do seu amigo para o adicionar.</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p style="font-size:20px; color:#DE8D47;margin: 0;"> Adicionar </p>
+                 <div class="you_sure" id="you_sure" >  Cancelar?
+                    <div id="no" class="no_button" onclick='hide_yousure("add_friend_screen");'>Não </div>
+                    <div class="yes_button"  onclick='cancel_add()' id="yes">Sim</div>
+                </div>
+                <div>
+                
+                <span style="  position: absolute;  font-size: 10.5pt;  text-align: center;  left: 5%;  top: 20%;  width: 90%;">Coloque a pulseira junto à do seu amigo</span>
+                <img style="position: absolute;  width: 70%;  left: 15.5%;  top: 43%;" src="icons/add_friend.gif">
+              <span onclick='show_yousure("1");' style="position: absolute;    font-size: 10.5pt;text-align: center;left: 29%;top: 77%; width: 41%;border-style: solid; border-radius: 20%; border-color: red; border-width: 2px;">Cancelar</span>
+
+                </div>
+            </div>
+            
+            <!--- <<<<< LIST FRIENDS >>>>> -->
+            <div class="screen" id="list_friend_screen">
+                <div class="help_screen" style="z-index: 1000;">
+                     <a class="help_title" style="top:10% ;line-height:0;">Lista<p></p> Amigos</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Selecione um amigo para aceder ao seu perfil.</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p style="font-size:20px; color:#DE8D47;margin: 0;"> Lista </p>
+                <div style=" position: relative;  height: 19%;"></div>
+                <div id="carousel1">
+                	<img onclick='go_profile(0)' id="goncalo" src="images/goncalo.png" alt="" class="slide"  />
+                	<img onclick='go_profile(1)' id="pedro" src="images/pedro.png" alt="" class="slide" />
+                	<img onclick='go_profile(2)' id="joao" src="images/jota.png" alt="" class="slide" />
+                </div>
+                   
+                <ul id="carousel1-descriptions">
+                	<li class="desc current">Gonçalo</li>
+                	<li class="desc">Pedro</li>
+                	<li class="desc">João</li>
+                </ul>
+            </div>
+            
+            <!--- <<<<< FRIENDS PROFILE >>>>> -->
+            <div class="screen" id="friend_profile">
+                <div class="help_screen" style="z-index: 1000;">
+                     <a class="help_title" style="top:10% ;line-height:0;">Perfil<p></p> Amigo</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Contem informação sobre o amigo e opções.</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p id="friend_name" style="font-size:20px; color:#DE8D47;margin: 0;"> </p>
+                <div class="icon-div">
+                        <img class="profile_pic" id="social-add" src="images/goncalo.png">
+                </div>
+                <div class="age"></div>
+                <div class="local"></div>
+                <div class="options" style="-webkit-clip-path: circle(83px at 48.85% -12.95%);"> 
+                    <div id="send_message_from_profile" onclick="go_send_profile_message()" class="messages" style="position: absolute; width: 34%; border-style: solid; border-width: 1px; height: 100%;">
+                        <a>Mensagens</a>
+                        <img class="icon" style="position: absolute;left: 40%;top: 25%;width: 42%;height: 30%;max-height: 50%;max-width:50%;" id="social-messages" src="icons/email5.png">
+                    </div>
+                    <div id="go-map" onclick="$('.image').attr('src','images/control_map.gif');" class="find" style="position: absolute;width: 33%;right: 0%;border-style: solid;border-width: 1px;height:100%;">
+                        <a>Localizar</a>
+                        <img class="icon" style="position: absolute;left: 16%; top: 25%;width: 45%;height: 33%;max-height: 50%;max-width: 50%;" id="social-messages" src="icons/user3.png">
+                    </div>
+                    <div class="delete" style="   position: absolute;        width: 31%;        left: 35%;    border-style: solid;    border-width: 1px;    height: 100%;">
+                        <a>Apagar</a>
+                        <img id="delete_user" class="icon" src="icons/rubbish7.png" style="position: absolute;  left: 18%;  top: 23%;  width: 57%;  height: 36%;  max-height: 50%;  max-width: 56%;">
+                    </div>
+                </div>
+            </div>
+            
+             <!--- <<<<< FRIENDS ADD CONFIRMATION >>>>> -->
+            <div class="screen" id="friend_add_confirmation">
+                <div class="help_screen" style="z-index: 1000;">
+                     <a class="help_title" style="top:10% ;line-height:0;">Confirmar<p></p> Amigo</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Confirme no botão verde para adicionar o amigo.<p></p> Pressione o botão vermelho para cancelar.</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p id="friend_name1" style="font-size:20px; color:#DE8D47;margin: 0;"> </p>
+                <div class="icon-div">
+                        <img class="profile_pic" id="social-add" src="images/goncalo.png">
+                </div>
+                <div class="age"></div>
+                <div class="local"></div>
+                <div style="    position: absolute;    width: 100%;    font-size: 13pt;    left: 0%;    top: 59%;    color: rgb(57, 255, 202);"> Adicionar amigo? </div>
+                <div class="buttons" style="font-size: 11px;line-height: 1;">
+                    <div class="next">
+    			        <img class="next_image" onclick="add_friend();" src="icons/confirm1.png">
+    			        <img  onclick='show_yousure("");'  class="cancel_image" src="icons/cancel29.png">
+    			    </div>
+    			</div>
+        		<div style="  top: 23%;"class="you_sure" id="you_sure" >  Cancelar Operação?
+                    <div id="no" class="no_button" onclick='hide_yousure("shop_screen1");'>Não </div>
+                    <div class="yes_button" onclick='shop_canceled("shop_screen1");' id="yes">Sim</div>
+                </div>
+            </div>
+            
+            <!--- <<<<< FRIENDS REMOVE >>>>> -->
+            <div class="screen" id="friend_remove_confirmation">
+                <div class="help_screen" style="z-index: 1000;">
+                     <a class="help_title" style="top:10% ;line-height:0;">Remover<p></p> Amigo</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Clique no botão vermelho para remover.<p></p> Pressione o botão verde para cancelar.</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p id="friend_name3" style="font-size:20px; color:#DE8D47;margin: 0;"> </p>
+                <div class="icon-div">
+                        <img class="profile_pic" id="social-add" src="images/goncalo.png">
+                </div>
+                <div class="age"></div>
+                <div class="local"></div>
+                <div style="    position: absolute;    width: 100%;    font-size: 13pt;    left: 0%;    top: 59%;    color: rgb(57, 255, 202);"> Remover amigo? </div>
+                <div class="buttons" style="font-size: 11px;line-height: 1;">
+                    <div class="next">
+    			        <img class="next_image" onclick='show_yousure("");' src="icons/confirm1_remove.png">
+    			        <img  onclick='return_back();'  class="cancel_image" src="icons/cancel29_remove.png">
+    			    </div>
+    			</div>
+        		<div style="  top: 23%;"class="you_sure" id="you_sure" >  Remover Amigo?
+                    <div id="no" class="no_button"  style="color:green;"  onclick='hide_yousure("shop_screen1");'>Não </div>
+                    <div  class="yes_button" style="  color: #A92F41;" onclick='remove_friend("...");' id="yes_remove">Sim</div>
+                </div>
+            </div>
+            
+            <!--- <<<<< REMOVE SUCESS >>>>> -->
+            <div class="screen" id="remove_sucess" style="line-height: 1">
+                <div class="help_screen" style="z-index: 1000;">
+                     <a class="help_title" style="top:10% ;line-height:0;">Amigo<p></p> Removido</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">O seu amigo foi removido com sucesso!</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <p class="title"> Amigo Removido! </p>
+                <span style="font-size: 12pt; color: white; margin: 1px 1px 1px 1px; position: absolute; top: 40%; right: 0%">Amigo apagado com sucesso.</span>
+                <div class="buttons" style="color: #91C7A9; margin-top: 1px" onclick='go_main("remove_sucess");'>OK</div>
+            </div>
+            
+            
+            <!--- <<<<< ADD SUCESS >>>>> -->
+            <div class="screen" id="add_friend_sucess" style="line-height: 1">
+                <div class="help_screen" style="z-index: 1000;">
+                    <a class="help_title">Amigo Adicionado</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">O seu amigo foi adicionado com sucesso, clique em OK para voltar ao menu de amigos.</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p id="friend_name2" style="font-size:20px; color:#DE8D47;margin: 0;"> </p>
+                <div class="icon-div">
+                        <img class="profile_pic" id="social-add" src="images/goncalo.png">
+                </div>
+                <div class="age"></div>
+                <div class="local"></div>
+                <div style="    position: absolute;    width: 100%;    font-size: 13pt;    left: 0%;    top: 59%;    color: rgb(57, 255, 202);"> Adicionado!! </div>
+                <div onclick="sucess_add();" class="buttons" style="color: #91C7A9; margin-top: 1px">OK</div>
+            </div>
+            
+            
+            <!--- <<<<< MY PROFILE >>>>> -->
+            <div class="screen" id="my_profile">
+                <div class="help_screen" style="z-index: 1000;">
+                     <a class="help_title" style="top:10% ;line-height:0;">Meu<p></p> Perfil</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Informação do utilizador registada à entrada do evento.</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p id="friend_name" style="font-size:20px; color:#DE8D47;margin: 0;">Meu Perfil</p>
+                <div class="icon-div">
+                        <img style="  width: 120%;  height: 120%;  border-radius: 20%;  border: 1px solid #91C7A9;  position: absolute;  top: 22%;  left: 35%;  max-height: 30%;  max-width: 30%;" id="social-add" src="images/doge.png">
+                </div>
+                <div style="  position: relative;  left: 13%;  top: 36%;  font-size: 12pt;  text-align: left;">Doge - 15 Anos</div>
+                <div style="   position: relative;  left: 6%;  text-align: left;  top: 36%;  font-size: 12pt;">Em Bar Carlsberg</div>
+                <div id="back-search"class="back_gps">
+	                Voltar
+	            </div>
+            </div>
+            
+            <!--- <<<<< CHOOSE FRIEND MESSAGE >>>>> -->
+            <div class="screen" id="choose_friend_message">
+                <div class="help_screen" style="z-index: 1000;">
+                     <a class="help_title" style="  top: 17%;  left: 16%;  line-height: 0;">Mensagens</a>
+                    <img class="help_icon" style="  top: 63%;  left: 40%;" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Selecione o utilizador desejado para entrar em conversação</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p style="font-size:20px; color:#DE8D47;margin: 0;  padding-top: 10px;"> Mensagem </p>
+                <div style=" position: relative;  height: 19%;"></div>
+                <div id="carousel2">
+                	<img onclick='go_send_message("goncalo")' id="goncalo" src="images/goncalo.png" alt="" class="slide"  />
+                	<img onclick='go_send_message("pedro")' id="pedro" src="images/pedro.png" alt="" class="slide" />
+                	<img onclick='go_send_message("joao")' id="joao" src="images/jota.png" alt="" class="slide" />
+                </div>
+                   
+                <ul id="carousel2-descriptions">
+                	<li class="desc current">Gonçalo</li>
+                	<li class="desc">Pedro</li>
+                	<li class="desc">João</li>
+                </ul>
+            </div>
+           
+            <!--- <<<<< MESSAGE SOMEONE >>>>> -->
+            <div class="screen" id="friend_message">
+                <div class="help_screen" style="z-index: 1000;">
+                     <a class="help_title" style="top:10% ;line-height:0;">Enviar<p></p> Mensagem</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Selecione uma mensagem predefinida e de seguida clique em enviar para enviar uma mensagem a um amigo </div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p style="font-size:20px; color:#DE8D47;margin: 0;"> Chat </p>
+                <div id="style-4" class="message_container">
+
+                </div>
+                
+                <div onclick='send();' class="send_message">
+                    Enviar Mensagem
+                </div>
+                <div class="list_messages">
+                    <div id="list_messages_screen1" style="  width: 100%;  height: 100%;">
+                        <div style="color:blue;  font-size: 11pt;">Mensagem</div>
+                        <div id="style-4" class="default1">
+                            <div id="message_group1" onclick="change_message_group(1);" class="default_messages">Cumprimentos</div>
+                            <div id="message_group2" onclick="change_message_group(2);" class="default_messages">Pedidos</div>
+                            <div id="message_group3" onclick="change_message_group(3);" class="default_messages">Perguntas</div>
+                            <div id="message_group4" onclick="change_message_group(4);" class="default_messages">Respostas</div>
+                        </div>
+                        <div style="font-size: 10pt;">
+                            <div style="text-align: center;position: absolute;width: 50%;  height: 16%;  border-right-style: solid;  border-right-width: 1px;"  onclick='$(".list_messages").fadeOut(500);'>
+                                Voltar
+                            </div>
+                            <div onclick="continue_message();" id="continue_message_group" style="position: absolute; width: 50%; right: 0%; height: 16%; text-align: center;">
+                                Continuar
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div id="list_messages_screen4" style="position:absolute; top:0%; width: 100%;  height: 100%;">
+                        <div style="color:blue;  font-size: 11pt;">Perguntas</div>
+                        <div id="style-4" class="default1">
+                            <div id="ask1" onclick="change_message_group3(1)" class="default_messages">Tudo bem?</div>
+                            <div id="ask2" onclick="change_message_group3(2)" class="default_messages">Onde estás?</div>
+                            <div id="ask3" onclick="change_message_group3(3)" class="default_messages">Posso ir aí?</div>
+                            <div id="ask4" onclick="change_message_group3(4)" class="default_messages">Demoras muito?</div>
+                            <div id="ask5" onclick="change_message_group3(5)" class="default_messages">Estás a gostar?</div>
+                        </div>
+                        <div style="font-size: 10pt;">
+                             <div style="text-align: center;position: absolute;width: 50%;  height: 16%;  border-right-style: solid;  border-right-width: 1px;" onclick='$("#list_messages_screen4").hide();$("#list_messages_screen1").show();'onclick='$("#list_messages_screen4").hide();$("#list_messages_screen1").show();'>
+                                Voltar
+                            </div>
+                            <div onclick="send_message(3)" id="send3" style="position: absolute; width: 50%; right: 0%; height: 16%; text-align: center; border-left-style: solid; border-left-width: 1px;"  >
+                                Enviar
+                            </div>
+                        </div>
+                    </div>
+                    <div id="list_messages_screen5" style="position:absolute; top:0%; width: 100%;  height: 100%;">
+                        <div style="color:blue;  font-size: 11pt;">Respostas</div>
+                        <div id="style-4" class="default1">
+                            <div id="answer1" onclick="change_message_group4(1)" class="default_messages">Sim</div>
+                            <div id="answer2" onclick="change_message_group4(2)" class="default_messages">Não</div>
+                            <div id="answer3" onclick="change_message_group4(3)" class="default_messages">Ok</div>
+                            <div id="answer4" onclick="change_message_group4(4)" class="default_messages">Talvez</div>
+                        </div>
+                        <div style="font-size: 10pt;">
+                             <div style="text-align: center;position: absolute;width: 50%;  height: 16%;  border-right-style: solid;  border-right-width: 1px;"onclick='$("#list_messages_screen5").hide();$("#list_messages_screen1").show();'>
+                                Voltar
+                            </div>
+                            <div onclick="send_message(4)" id="send4" style="position: absolute; width: 50%; right: 0%; height: 16%; text-align: center; border-left-style: solid; border-left-width: 1px;"  >
+                                Enviar
+                            </div>
+                        </div>
+                    </div>
+                    <div id="list_messages_screen2" style="position:absolute; top:0%; width: 100%;  height: 100%;">
+                        <div style="color:blue;  font-size: 11pt;">Cumprimentos</div>
+                        <div id="style-4" class="default1">
+                            <div id="greeting1" onclick="change_message_group1(1)" class="default_messages">Olá</div>
+                            <div id="greeting2" onclick="change_message_group1(2)" class="default_messages">Adeus</div>
+                            <div id="greeting3" onclick="change_message_group1(3)" class="default_messages">Beijinho</div>
+                            <div id="greeting4" onclick="change_message_group1(4)" class="default_messages">Abraço</div>
+                            <div id="greeting5" onclick="change_message_group1(5)" class="default_messages">Obrigado</div>
+                        </div>
+                        <div style="font-size: 10pt;">
+                            <div style="text-align: center;position: absolute;width: 50%;  height: 16%;  border-right-style: solid;  border-right-width: 1px;"  onclick='$("#list_messages_screen2").hide();$("#list_messages_screen1").show();'>
+                                Voltar
+                            </div>
+                            <div onclick="send_message(1)" id="send1"  style="position: absolute; width: 50%; right: 0%; height: 16%; text-align: center; border-left-style: solid; border-left-width: 1px;">
+                                Enviar
+                            </div>
+                        </div>
+                    </div>
+                    <div id="list_messages_screen3" style="position:absolute; top:0%; width: 100%;  height: 100%;">
+                        <div style="color:blue;  font-size: 11pt;">Pedidos</div>
+                        <div id="style-4" class="default1">
+                            <div id="request1" onclick="change_message_group2(1)" class="default_messages">Sff</div>
+                            <div id="request2" onclick="change_message_group2(2)" class="default_messages">Trás-me comida</div>
+                            <div id="request3" onclick="change_message_group2(3)" class="default_messages">Vem ter comigo</div>
+                            <div id="request4" onclick="change_message_group2(4)" class="default_messages">Dá-me boleia</div>
+                            <div id="request5" onclick="change_message_group2(5)" class="default_messages">Liga-me</div>
+                        </div>
+                        <div style="font-size: 10pt;">
+                             <div style="text-align: center;position: absolute;width: 50%;  height: 16%;  border-right-style: solid;  border-right-width: 1px;" onclick='$("#list_messages_screen3").hide();$("#list_messages_screen1").show();'>
+                                Voltar
+                            </div>
+                            <div onclick="send_message(2)" id="send2" style="position: absolute; width: 50%; right: 0%; height: 16%; text-align: center; border-left-style: solid; border-left-width: 1px;">
+                                Enviar
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+                
+            </div>
+            
+             <!--- <<<<< FEED >>>>> -->
+            <div class="screen" id="friends_feed">
+                <div class="help_screen" style="z-index: 1000;">
+                    <a class="help_title"style="top:16%;">Actividade</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;">Vê o que os teus amigos partilharam ou partilha um estado!</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <div id="txt" style="font-size:10px"></div>
+                <p class="title"> Actividade </p>
+                <div class="friends_feed">
+  
+                </div>
+                <div onclick="share_status();" class="share_status">
+                    Partilhar Estado
+                </div>
+                <div class="list_feelings">
+                    <div id="list_feelings_screen1" style="  width: 100%;  height: 100%;">
+                        <div style="color:blue;  font-size: 11pt;">A fazer:</div>
+                        <div id="style-4" class="default1">
+                            <div id="feeling_group0" onclick="change_feeling_group(0);" class="default_messages">A sentir-se</div>
+                            <div id="feeling_group1" onclick="change_feeling_group(1);" class="default_messages">A ver</div>
+                            <div id="feeling_group2" onclick="change_feeling_group(2);" class="default_messages">A comer</div>
+                            <div id="feeling_group3" onclick="change_feeling_group(3);" class="default_messages">A beber</div>
+                        </div>
+                        <div style="font-size: 10pt;">
+                            <div style="text-align: center;position: absolute;width: 50%;  height: 16%;  border-right-style: solid;  border-right-width: 1px;"  onclick='$(".list_feelings").fadeOut(500);'>
+                                Voltar
+                            </div>
+                            <div onclick="continue_feeling();" id="continue_feeling_group" style="position: absolute; width: 50%; right: 0%; height: 16%; text-align: center;">
+                                Continuar
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="list_feelings_screen2" style="position:absolute; top:0%; width: 100%;  height: 100%;">
+                        <div id="feel_text" style="color:blue;  font-size: 11pt;"></div>
+                        <div id="style-4" class="feelings_box">
+                            <div id="feeling0" onclick="" class="default_messages"></div>
+                            <div id="feeling1" onclick="" class="default_messages"></div>
+                            <div id="feeling2" onclick="" class="default_messages"></div>
+                            <div id="feeling3" onclick="" class="default_messages"></div>
+                            <div id="feeling4" onclick="" class="default_messages"></div>
+                            <div id="feeling5" onclick="" class="default_messages"></div>
+                        </div>
+                        <div style="font-size: 10pt;">
+                             <div style="text-align: center;position: absolute;width: 50%;  height: 16%;  border-right-style: solid;  border-right-width: 1px;" onclick='$("#list_feelings_screen2").hide();$("#list_feelings_screen1").show();'>
+                                Voltar
+                            </div>
+                            <div onclick="share()" id="share" style="position: absolute; width: 50%; right: 0%; height: 16%; text-align: center; border-left-style: solid; border-left-width: 1px;"  >
+                                Enviar
+                            </div>
+                        </div>
+                    </div>
+   
+                </div>
+            </div>
+            
+            
+            
+            <!--#############################################                      
+                ######             CAMERA               #####
+                #############################################
+            -->              
+             <!--- <<<<< TAKE PICTURE >>>>> -->
+            <div class="screen" id="camera">
+                 <div class="help_screen" style="z-index: 1000;">
+                    <a class="help_title">Camera</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;"> Para tirar uma fotografia e partilhar na actividade clique em tirar foto.</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <p class="title"> Camera </p>
+                <div class="thumbnail"  id='photo'>
+		            <img class="image" id='photo_img' src='images/photo5.jpg' />
+		            <div id="share" onclick="$('.you_sure').fadeIn(500);" class="share">Partilhar na Actividade<img src="icons/group2.png" style="position: absolute;top: 5%;width: 25%;right: 4%;"></div>
+	            </div>
+	            <div id="take_photo" class="back_gps" onclick="take_photo();">
+	               Tirar foto
+	            </div>
+	            <div style="border-color:black;  top: 23%;"class="you_sure" id="you_sure" > <a style="  position: absolute;  width: 100%;  left: 0;  top: 20%;"> Partilhar Foto? </a>
+                    <div id="no" class="no_button"  style="color: #A92F41;"  onclick='hide_yousure("");'>Não </div>
+                    <div  class="yes_button" style="color:black;" id="yes_share" onclick="share_photo();">Sim</div>
+                </div>
+            </div>
+            
+            <!--- <<<<< WATCH PHOTO >>>>> -->
+            <div class="screen" id="see_photo">
+                 <div class="help_screen" style="z-index: 1000;">
+                    <a class="help_title">Foto</a>
+                    <img class="help_icon" src="icons/question9.png"/>
+                    <div class="help_text">
+                        <div style="  font-size: 10pt;  position: absolute;  width: 90%;  left: 5%;"> Veja aqui a foto partilhada</div>
+                    </div>
+                    <div onclick="help();" style="height:13%;" class="help_back">Voltar</div>
+                </div>
+                <p class="title"> Foto </p>
+                <div class="thumbnail"  id='photo'>
+		            <img onclick="fullscreen_x();" class="image_photo" id='photo_img' style="width:60%;height:60%;border-style: double;" src='images/photo5.jpg' />
+		            <div class="photo_info">
+                        <img src="images/goncalo.png" class="icon_photo_info">
+                        <a class="name_photo_info">Gonçalo Fialho</a>
+                        <a class="at_photo_info">Em Palco Mundo</a>
+                    </div>
+	            </div>
+	            
+	            <div onclick="return_back();" id="back_feed" class="back_gps" >
+	               Voltar
+	            </div>
+	            <div style="border-color:black;  top: 23%;"class="you_sure" id="you_sure" > <a style="  position: absolute;  width: 100%;  left: 0;  top: 20%;"> Partilhar Foto? </a>
+                    <div id="no" class="no_button"  style="color: #A92F41;"  onclick='hide_yousure("");'>Não </div>
+                    <div  class="yes_button" style="color:black;" id="yes_share">Sim</div>
+                </div>
+            </div>
+            
+            
+            <!--#############################################                      
+                ######             UNAVAILABLE          #####
+                #############################################
+            -->   
+            <!--- <<<<< TEMPORARY UNAVAILABLE >>>>> -->
+            <div class="screen" id="temporary_unavailable" style="line-height: 1;  ">
+                <p class="title" style=" position: absolute;top: 18%;  left: 15%;"> Indisponível </p>
+                <span style="font-size: 12pt; color: white; margin: 1px 1px 1px 1px; position: absolute; top: 40%; right: 0%">A operação não está disponível.</span>
+                <div class="buttons" style="color: #91C7A9; margin-top: 1px" onclick='$(".you_sure").hide();go_main("temporary_unavailable");'>OK</div>
+            </div>
+            
+            <canvas id="diagonalLines" style="width="192" height="192""></canvas>
+        </div>
+   
+        <div class="control_panel">
+            <div style="  top: 10%;"class="control_panel_boxes">
+                <div onclick="check_add_friend();" style="  position: absolute;  width: 34%;" class="btn">Adicionar Amigo</div>
+                <a style="  position: absolute;  left: 45%;">É necessário estar no ecrã de "Adicionar Amigo"</a>
+            </div>
+        </div>
+        <script src='js/jquery.roundabout.min.js'></script>
+        <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+        <script type="text/javascript" src="js/canvas.js"></script>
+        <script type="text/javascript" src="js/date.js"></script>
+        <script type="text/javascript" src="js/lock_screen.js"></script>
+        <script type="text/javascript" src="js/dragmap.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/tempo.js"></script>
+
+
+    </body>
+</html>
